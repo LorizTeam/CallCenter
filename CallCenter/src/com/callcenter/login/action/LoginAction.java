@@ -61,7 +61,7 @@ public class LoginAction extends Action {
 				//	session.setAttribute("actionDisabled", "true");
 					String type = loginForm.getType();
 					
-					if(type.equals("amd")){
+					if(type.equals("adm")){
 						forwardText = "success_amd";
 					}else if(type.equals("acc")){
 						forwardText = "success_acc";

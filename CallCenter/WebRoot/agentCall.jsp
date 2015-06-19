@@ -143,6 +143,16 @@
 									<div class="col-md-2">
 										<label><input type="radio" name="optionsRadios" id="optionsRadios2" value="option1" checked>Not Send SMS</label>
 									</div>
+									<div class="col-md-6 form-inline">
+										<label>5</label>
+										<select class="form-control">
+											<option>เลือก</option>
+											<option>บริษัท TOYOTA</option>
+											<option>บริษัท HOME PRO</option>
+											<option>บริษัท อไหล่ยานยนต์</option>
+											<option>บริษัท INDEX</option>
+										</select>
+									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-12">
