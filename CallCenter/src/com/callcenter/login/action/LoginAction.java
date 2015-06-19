@@ -16,8 +16,10 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 
+import com.callcenter.agent.data.MainAgentDB;
 import com.callcenter.login.data.LoginDB;
 import com.callcenter.login.form.LoginForm;
+import com.callcenter.util.DateUtil;
 
 /** 
  * MyEclipse Struts
@@ -36,6 +38,10 @@ public class LoginAction extends Action {
 		String userName = loginForm.getUserName();
 		String passWord = loginForm.getPassWord();
 		 
+		DateUtil dateUtil = new DateUtil();
+		
+		String chkDate = dateUtil.curDate();
+		
 		String forwardText = null;
 	//	System.out.println("ipAddress : "+ipAddress);
 		
@@ -53,7 +59,15 @@ public class LoginAction extends Action {
 					session.setAttribute("login", login);
 				//	session.setAttribute("actionDisabled", loginForm.isActionDisabled());
 				//	session.setAttribute("actionDisabled", "true");
-					forwardText = "success";
+					String type = loginForm.getType();
+					
+					if(type.equals("amd")){
+						forwardText = "success_amd";
+					}else if(type.equals("acc")){
+						forwardText = "success_acc";
+					}else if(type.equals("agt")){
+						forwardText = "success_agt";
+					}
 					
 					List memberList = loginDB.MemberList("", "", "");
 					request.setAttribute("memberList", memberList);

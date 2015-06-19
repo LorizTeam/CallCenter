@@ -4,26 +4,26 @@
 <struts-config>
   <data-sources />
   <form-beans> 
- <!-- 	<form-bean name="loginForm" type="com.callcenter.form.LoginForm" /> -->
+  	<form-bean name="mainAgentForm" type="com.callcenter.agent.form.MainAgentForm" /> 
   </form-beans>
   <global-exceptions />
   <global-forwards />
   <action-mappings>
   
-  <!--################################     Login     #################################-->
-  <!-- <action
+  <!--################################     Main Agent     #################################-->
+   <action
       attribute="loginForm"
-      input="/mindex.jsp"
-      name="loginForm"
-      path="/login"
+      input="/mainAgent.jsp"
+      name="mainAgentForm"
+      path="/mainAgent"
       scope="request"
-      type="com.callcenter.action.LoginAction" >
+      type="com.callcenter.agent.action.MainAgentAction" >
       
-      <forward name="error" path="/mindex.jsp" />
-      <forward name="success" path="/Home_Login.jsp" />
+      <forward name="error" path="/mainAgent.jsp" />
+      <forward name="success" path="/agentCall.jsp" />
       <forward name="register" path="/RegisterNew.jsp" />
-    </action> -->
-  <!--################################     Login     #################################-->
+    </action> 
+  <!--################################      Main Agent     #################################-->
   
   </action-mappings>
   
