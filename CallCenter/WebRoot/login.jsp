@@ -43,14 +43,19 @@
 									<img class="profile-img" src="img/Team-Members.png"/>
 								</div>
 							</div>
-							<html:form action="/login.do" method="POST">
+							<%String login = (String) session.getAttribute("login");
+							if(login =="0"){%>
+							Username and Password Incorrect
+							<%
+							} %>
+							<html:form action="/login" method="POST">
 								<div class="form-group">
 									<label>Username</label>
-									<input class="form-control" placeholder="Username" name="username" type="text" />
+									<input class="form-control" placeholder="Username" name="userName" type="text" />
 								</div>
 								<div class="form-group">
 									<label>Password</label>
-									<input class="form-control" placeholder="Password" name="password" type="password"/>
+									<input class="form-control" placeholder="Password" name="passWord" type="password"/>
 								</div>
 								<input class="btn btn-md btn-primary btn-block" type="submit" value="Login" />
 							</html:form>

@@ -4,14 +4,14 @@
 <struts-config>
   <data-sources />
   <form-beans> 
-  	<form-bean name="loginForm" type="com.callcenter.form.LoginForm" />
+ <!-- 	<form-bean name="loginForm" type="com.callcenter.form.LoginForm" /> -->
   </form-beans>
   <global-exceptions />
   <global-forwards />
   <action-mappings>
   
   <!--################################     Login     #################################-->
-   <action
+  <!-- <action
       attribute="loginForm"
       input="/mindex.jsp"
       name="loginForm"
@@ -22,7 +22,7 @@
       <forward name="error" path="/mindex.jsp" />
       <forward name="success" path="/Home_Login.jsp" />
       <forward name="register" path="/RegisterNew.jsp" />
-    </action>
+    </action>  -->
   <!--################################     Login     #################################-->
   
   </action-mappings>

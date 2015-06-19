@@ -27,19 +27,7 @@ import com.callcenter.login.form.LoginForm;
  * @struts.action path="/login" name="loginForm" scope="request" validate="true"
  */
 public class LoginAction extends Action {
-	/*
-	 * Generated Methods
-	 */
-
-	/** 
-	 * Method execute
-	 * @param mapping
-	 * @param form
-	 * @param request
-	 * @param response
-	 * @return ActionForward
-	 * @throws Exception 
-	 */
+	
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
 		LoginForm loginForm = (LoginForm) form;// TODO Auto-generated method stub
@@ -60,6 +48,9 @@ public class LoginAction extends Action {
 					session.setAttribute("name", loginForm.getName());
 					session.setAttribute("type", loginForm.getType());
 					 
+					session.setAttribute("name", loginForm.getName());
+					String login = "1";
+					session.setAttribute("login", login);
 				//	session.setAttribute("actionDisabled", loginForm.isActionDisabled());
 				//	session.setAttribute("actionDisabled", "true");
 					forwardText = "success";
@@ -71,10 +62,14 @@ public class LoginAction extends Action {
 			
 			} else {
 				request.setAttribute("error", "Username หรือ Password ไม่ถู�?ต้อง ");
+				String login = "0";
+				session.setAttribute("login", login);
 				forwardText = "error";
 			}
 		} else {
 			request.setAttribute("error", "โปรดระบุ Username �?ละ Password");
+			String login = "0";
+			session.setAttribute("login", login);
 			forwardText = "error";
 		}
 		return mapping.findForward(forwardText);
