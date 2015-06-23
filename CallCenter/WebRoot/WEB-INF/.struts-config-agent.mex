@@ -73,14 +73,20 @@
   <StrutsTransition id="/agentCall.do,cancle,/mainAgent.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="326,368" />
-      <AbsolutePoint location="706,368" />
-      <AbsolutePoint location="706,201" />
+      <AbsolutePoint location="676,368" />
+      <AbsolutePoint location="676,201" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/mainAgent.do,createCustomer,/createCustomer.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1075,98" />
+      <AbsolutePoint location="118,575" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/createCustomer.do,cancle,/mainAgent.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="805,498" />
-      <AbsolutePoint location="706,175" />
+      <AbsolutePoint location="706,450" />
+      <AbsolutePoint location="706,201" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/mainAgent.do,register,/RegisterNew.jsp,1" routingType="0">

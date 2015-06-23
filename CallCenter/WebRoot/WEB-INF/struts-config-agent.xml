@@ -21,6 +21,7 @@
       
       <forward name="search" path="/mainAgent.jsp" />
       <forward name="success" path="/agentCall.jsp" />
+      <forward name="createCustomer" path="/createCustomer.jsp" />
     </action> 
   <!--################################      Main Agent     #################################-->
   

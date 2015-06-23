@@ -35,6 +35,7 @@ public class MainAgentForm extends ActionForm {
 	private String update = null;
 	private String search = null;
 	private String next = null;
+	private String createCustomer = null;
 	
 	public MainAgentForm(){};
 	public MainAgentForm (String custID, String custName, String custDate, String custType, String period){
@@ -142,6 +143,12 @@ public class MainAgentForm extends ActionForm {
 	}
 	public void setUpdate(String update) {
 		this.update = update;
+	}
+	public String getCreateCustomer() {
+		return createCustomer;
+	}
+	public void setCreateCustomer(String createCustomer) {
+		this.createCustomer = createCustomer;
 	}
 	
 

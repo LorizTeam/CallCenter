@@ -158,7 +158,7 @@
 						<div class="panel panel-primary">
 							<div class="panel-heading"><h3 class="panel-title">Member List</h3></div>
 							<div class="panel-body">
-								<form action="">
+								<html:form action="/agentCall" method="POST">
 									<div class="row">
 										<div class=""></div>
 										<div class="col-md-3">
@@ -172,7 +172,7 @@
 											<input class="btn btn-info" name="search" type="submit" value="Search" />
 										</div>
 									</div>
-								</form>
+								</html:form>
 								<div><br/></div>
 								<table class="table table-bordered table-hover table-striped">
 									<thead>
@@ -209,6 +209,7 @@
 									<%	} %>
 									</tbody>
 								</table>
+							 
 							</div>
 						</div>
 					</div>

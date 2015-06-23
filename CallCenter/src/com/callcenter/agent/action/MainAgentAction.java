@@ -37,6 +37,7 @@ public class MainAgentAction extends Action {
 		String custID	= mainAgentFrom.getCustID();
 		String search 	= mainAgentFrom.getSearch();
 		String next 	= mainAgentFrom.getNext();
+		String createCustomer = mainAgentFrom.getCreateCustomer();
 		
 		if(search!=null){
 		
@@ -81,6 +82,10 @@ public class MainAgentAction extends Action {
 			request.setAttribute("customerList", customerList);	
 			
 			forwardText = "success";
+		}
+		if(createCustomer!=null){
+			
+			forwardText = "createCustomer";
 		}
 		
 		return mapping.findForward(forwardText);

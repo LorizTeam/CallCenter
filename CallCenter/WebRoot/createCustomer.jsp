@@ -10,6 +10,10 @@
 	if(session.getAttribute("name") != null) {
 		name = (String) session.getAttribute("name");
 	}
+	String massageAlert = "";
+	if(request.getAttribute("massageAlert") != null) {
+		massageAlert = (String) request.getAttribute("massageAlert");
+	}
  %>
 
 <!DOCTYPE html>
@@ -19,7 +23,7 @@
 		<link rel="stylesheet" href="css/bootstrap.css" />
 		<link rel="stylesheet" href="css/bootstrap-theme.css" />
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
-		
+		<link rel="stylesheet" href="css/jquery-ui.css"/>
 		<style>
 			body{
 				padding-top:52px;
@@ -63,9 +67,12 @@
 			<div class="panel panel-primary">
 				<div class="panel-heading"><h3 class="panel-title">Create Customer</h3></div>
 				<div class="panel-body">
+				<html:form action="/createCustomer" method="POST">
 					<div class="container">
-						<div><br/></div>
-						<form action="">
+						<div><br/><%if(request.getAttribute("massageAlert") != null){ %>
+									<%=massageAlert%><br/>
+								<%} %>
+						</div>
 						<div class="row">
 							<div class="col-md-2" align="right">
 								<label>เบอร์โทรศัพท์</label>
@@ -77,13 +84,13 @@
 								<label>ชื่อ - นามสกุล</label>
 							</div>
 							<div class="col-md-3">
-								<input type="text" id="custName" name="custName" class="form-control" placeholder="Full Name">
+								<input type="text" id="custName" name="custName" class="form-control" placeholder="Name LastName">
 							</div>
 						</div>
 						<div><br/></div>
 						<div class="row">
 							<div class="col-md-2" align="right">
-								<label>งบรอบเดือน</label>
+								<label>งวดทั้งหมด</label>
 							</div>
 							<div class="col-md-3">
 								<input type="text" id="period" name="period" class="form-control" placeholder="Preiod">
@@ -116,17 +123,26 @@
 						<div><br/></div>
 						<div class="row">
 							<div class="col-md-10" align="right">
-								<input type="submit" class="btn btn-info" value="Save"/>
+								<input type="submit" name="save" class="btn btn-info" value="Save"/>
 							</div>
 						</div>
-					</form>
 					</div>
-					
+				</html:form>
 				</div>
 			</div>
 		</div>
 		
 		<script src="js/bootstrap.js"></script>
 		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/jquery-ui.js"></script>
+		<script>
+		  $(function() {
+		    $( "#custDate" ).datepicker({ dateFormat: 'dd/mm/yy' });
+		     // แทรกโค้ต jquery  
+   			// $( "#fromDate" ).datepicker({ dateFormat: 'yy-mm-dd' });  
+    		 // รูปแบบวันที่ที่ได้จะเป็น 2009-08-16  
+		    
+		  });
+	    </script>
 	</body>
 </html>
