@@ -5,6 +5,16 @@
 <%@ page import ="javax.servlet.http.HttpServletResponse.*"%>
 <%@ page import ="javax.servlet.http.HttpSession.*"%>
 <%@ page import="com.callcenter.agent.form.MainAgentForm" %>
+<%
+	String fromDate = "", toDate = "";
+	
+	if(request.getAttribute("fromDate")!=null){
+		fromDate = request.getAttribute("fromDate").toString();
+	}
+	if(request.getAttribute("toDate")!=null){
+		toDate = request.getAttribute("toDate").toString();
+	}
+ %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -12,6 +22,7 @@
 		<link rel="stylesheet" href="css/bootstrap.css" />
 		<link rel="stylesheet" href="css/bootstrap-theme.css" />
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/jquery-ui.css"/>
 		
 		<style>
 			body{
@@ -183,6 +194,26 @@
 						<div class="panel panel-primary">
 							<div class="panel-heading"><h3 class="panel-title">Member List</h3></div>
 							<div class="panel-body">
+								
+									<form action="">
+										<div class="row">
+											<div class="col-md-2">
+					
+											</div>
+											<div class="col-md-2">
+												<input type="text" id="fromDate" name="fromDate" value="<%=fromDate%>" class="form-control" placeholder="Form Date">
+											</div>
+											<div class="col-md-2">
+												<input type="text" id="toDate" name="toDate" value="<%=toDate%>" class="form-control" placeholder="To Date">
+											</div>
+											<div class="col-md-4 form-inline">
+												<input type="text" class="form-control" placeholder="Search">
+												<input class="btn btn-info" name="search" type="submit" value="Search" />
+											</div>
+										</div>
+									</form>
+
+								<div><br/></div>
 								<table class="table table-bordered table-hover table-striped">
 									<thead>
 										<tr>
@@ -226,5 +257,19 @@
 		
 		<script src="js/bootstrap.js"></script>
 		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/jquery-ui.js"></script>
+		<script>
+		  $(function() {
+		    $( "#fromDate" ).datepicker({ dateFormat: 'dd/mm/yy' });
+		     // แทรกโค้ต jquery  
+   			// $( "#fromDate" ).datepicker({ dateFormat: 'yy-mm-dd' });  
+    		 // รูปแบบวันที่ที่ได้จะเป็น 2009-08-16  
+		    
+		  });
+		  
+		  $(function() {
+		    $( "#toDate" ).datepicker({dateFormat: 'dd/mm/yy' });
+		  });
+	    </script>
 	</body>
 </html>
