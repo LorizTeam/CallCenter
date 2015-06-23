@@ -60,7 +60,8 @@
             				<span class="icon-bar"></span>
             				<span class="icon-bar"></span>
           				</button>
-          				<a class="navbar-brand" href="#">Call Center</a>
+          				<a class="navbar-brand" href="mainAgent.jsp"><img src="img/logo.png" height="27" width="50"/></a>
+          				<a class="navbar-brand" href="">Call Center</a>
         			</div>
         			<div id="navbar" class="collapse navbar-collapse">
           				<ul class="nav navbar-nav navbar-right">
@@ -90,7 +91,7 @@
 							<input class="btn btn-info" name="search" type="submit" value="Search" />
 						</div>
 						<div class="col-md-2">
-							<input class="btn btn-info" name="createCustomer" type="submit" value="Create Customer" />
+							<input class="btn btn-warning" name="createCustomer" type="submit" value="Create Customer" />
 						</div>
 					</div>
 					<div><br/></div>
