@@ -1,7 +1,6 @@
 package com.callcenter.agent.data;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -21,10 +20,10 @@ public class MainAgentDB {
 	ResultSet rs		= null;
 	DateUtil dateUtil = new DateUtil();
 	
-	public List GetCustomerList(String custDate, String fromDate, String toDate) 
+	public List GetCustomerList(String custDate, String fromDate, String toDate, String custID) 
 	throws Exception { //30-05-2014
 		List customerList = new ArrayList();
-		String custID = "", custName = "", docDate = "", custType = "", period = "" ;
+		String custName = "", docDate = "", custType = "", period = "" ;
 		try {
 		
 			conn = agent.getConnectMYSql();
@@ -35,8 +34,9 @@ public class MainAgentDB {
 			if(!custDate.equals("")) sqlStmt = sqlStmt+ "docdate between '"+custDate+"' AND date_add('"+custDate+"',INTERVAL 7 day) AND ";
 			if(!fromDate.equals("")) sqlStmt = sqlStmt+ "docdate >= '"+fromDate+"' AND ";
 			if(!toDate.equals("")) sqlStmt = sqlStmt+ "docdate <= '"+toDate+"' AND ";
+			if(!custID.equals("")) sqlStmt = sqlStmt+ "custid like '"+custID+"%' AND ";
 			
-			sqlStmt = sqlStmt + "custid <> '' group by custid, period order by custid";
+			sqlStmt = sqlStmt + "custid <> '' group by custid, period order by custid, docdate";
 			
 			//System.out.println(sqlStmt);				
 			pStmt = conn.createStatement();

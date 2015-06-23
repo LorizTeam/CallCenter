@@ -75,7 +75,7 @@ public class LoginAction extends Action {
 					date = dateUtil.CnvToYYYYMMDD(date, '-');
 					
 					MainAgentDB mainAgentDB = new MainAgentDB();
-					List customerList = mainAgentDB.GetCustomerList(date, "", "");
+					List customerList = mainAgentDB.GetCustomerList(date, "", "", "");
 					request.setAttribute("customerList", customerList);
 					
 					loginForm.reset();

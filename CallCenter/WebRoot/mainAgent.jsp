@@ -6,13 +6,19 @@
 <%@ page import ="javax.servlet.http.HttpSession.*"%>
 <%@ page import="com.callcenter.agent.form.MainAgentForm" %>
 <%
-	String fromDate = "", toDate = "";
+	String fromDate = "", toDate = "", custID = "", name = "";
 	
 	if(request.getAttribute("fromDate")!=null){
 		fromDate = request.getAttribute("fromDate").toString();
 	}
 	if(request.getAttribute("toDate")!=null){
 		toDate = request.getAttribute("toDate").toString();
+	}
+	if(request.getAttribute("custID")!=null){
+		custID = request.getAttribute("custID").toString();
+	}
+	if(session.getAttribute("name") != null) {
+		name = (String) session.getAttribute("name");
 	}
  %>
 
@@ -58,7 +64,7 @@
         			</div>
         			<div id="navbar" class="collapse navbar-collapse">
           				<ul class="nav navbar-nav navbar-right">
-            				<li align="right"><a href="#contact">Login Name : ......</a></li>
+            				<li align="right"><a href="#contact">Login Name : <%=name%> </a></li>
             				<li align="right"><a href="#contact">Login out</a></li>
           				</ul>
         			</div><!-- /.nav-collapse -->
@@ -82,7 +88,7 @@
 							<input type="text" id="toDate" name="toDate" value="<%=toDate%>" class="form-control" placeholder="To Date">
 						</div>
 						<div class="col-md-4 form-inline">
-							<input type="text" class="form-control" placeholder="Search">
+							<input type="text" id="custID" name="custID" value="<%=custID%>" class="form-control" placeholder="Telephone">
 							<input class="btn btn-info" name="search" type="submit" value="Search" />
 						</div>
 					</div>

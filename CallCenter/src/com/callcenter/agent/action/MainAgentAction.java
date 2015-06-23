@@ -32,9 +32,9 @@ public class MainAgentAction extends Action {
 	
 		MainAgentForm mainAgentFrom = (MainAgentForm) form;
 		
-	//	String fromDate = (String) request.getParameter("fromDate");
 		String fromDate = mainAgentFrom.getFromDate();
 		String toDate 	= mainAgentFrom.getToDate();
+		String custID	= mainAgentFrom.getCustID();
 		String search 	= mainAgentFrom.getSearch();
 		String next 	= mainAgentFrom.getNext();
 		
@@ -42,14 +42,14 @@ public class MainAgentAction extends Action {
 		
 		request.setAttribute("fromDate", fromDate);
 		request.setAttribute("toDate", toDate);	
-			
+		request.setAttribute("custID", custID);
 		DateUtil dateUtil = new DateUtil();
 		if(!fromDate.equals("")) fromDate	= dateUtil.CnvToYYYYMMDD(fromDate, '-');
 		if(!toDate.equals("")) 	 toDate 	= dateUtil.CnvToYYYYMMDD(toDate, '-');
 		
 		
 		MainAgentDB mainAgentDB = new MainAgentDB();
-		List customerList = mainAgentDB.GetCustomerList("", fromDate, toDate);
+		List customerList = mainAgentDB.GetCustomerList("", fromDate, toDate, custID);
 		request.setAttribute("customerList", customerList);
 		
 		forwardText = "search";
@@ -57,11 +57,11 @@ public class MainAgentAction extends Action {
 		}else{
 			
 		DateUtil dateUtil = new DateUtil();
-		String date 	= dateUtil.curDate();
-		date = dateUtil.CnvToYYYYMMDD(date, '-');	
+		String date 	= "";
+		date = dateUtil.CnvToYYYYMMDD(dateUtil.curDate(), '-');	
 			
 		MainAgentDB mainAgentDB = new MainAgentDB();
-		List customerList = mainAgentDB.GetCustomerList(date, "", "");
+		List customerList = mainAgentDB.GetCustomerList(date, "", "", "");
 		request.setAttribute("customerList", customerList);	
 		
 		forwardText = "search";
@@ -70,9 +70,13 @@ public class MainAgentAction extends Action {
 			DateUtil dateUtil = new DateUtil();
 			if(!fromDate.equals("")) fromDate	= dateUtil.CnvToYYYYMMDD(fromDate, '-');
 			if(!toDate.equals("")) 	 toDate 	= dateUtil.CnvToYYYYMMDD(toDate, '-');
+			String date = "";
+			if(fromDate.equals("")){
+				date = dateUtil.CnvToYYYYMMDD(dateUtil.curDate(), '-');
+			}
 			
 			MainAgentDB mainAgentDB = new MainAgentDB();
-			List customerList = mainAgentDB.GetCustomerList("", fromDate, toDate);
+			List customerList = mainAgentDB.GetCustomerList(date, fromDate, toDate, custID);
 
 			request.setAttribute("customerList", customerList);	
 			
