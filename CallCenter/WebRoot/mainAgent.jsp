@@ -75,7 +75,7 @@
 					<h3 class="panel-title">Agent</h3>
 				</div>
 				<div class="panel-body">
-				<html:form action="/agentCall" method="POST">
+				<html:form action="/mainAgent" method="POST">
 					<div class="container">
 					<div class="row">
 						<div class="col-md-1"></div>
@@ -90,7 +90,7 @@
 							<input class="btn btn-info" name="search" type="submit" value="Search" />
 						</div>
 						<div class="col-md-2">
-							<input class="btn btn-info" name="search" type="submit" value="Create Customer" />
+							<input class="btn btn-info" name="createCustomer" type="submit" value="Create Customer" />
 						</div>
 					</div>
 					<div><br/></div>

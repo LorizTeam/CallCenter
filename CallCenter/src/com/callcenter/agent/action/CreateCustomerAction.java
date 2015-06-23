@@ -17,6 +17,7 @@ import org.apache.struts.action.ActionMapping;
 
 import com.callcenter.agent.data.CreateCustomerDB;
 import com.callcenter.agent.form.MainAgentForm;
+import com.callcenter.util.DateUtil;
 
 public class CreateCustomerAction extends Action {
 	
@@ -24,17 +25,18 @@ public class CreateCustomerAction extends Action {
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String userName = "";
 		HttpSession session = request.getSession();
-		userName = (String) session.getAttribute("name");
+		userName = (String) session.getAttribute("userName");
 		 
 		String forwardText = null;
-	
+		DateUtil dateUtil = new DateUtil();
 		MainAgentForm mainAgentFrom = (MainAgentForm) form;
 		
 		String custID		= mainAgentFrom.getCustID();
-		String custName		= mainAgentFrom.getCustName();
-		String custAddr		= mainAgentFrom.getCustAddr();
+		String custName		= new String(mainAgentFrom.getCustName().getBytes("ISO8859_1"), "utf-8");
+		String custAddr		= new String(mainAgentFrom.getCustAddr().getBytes("ISO8859_1"), "utf-8");
 		String custEmail	= mainAgentFrom.getCustEmail();
 		String custDate		= mainAgentFrom.getCustDate();
+		if(!custDate.equals("")) custDate	= dateUtil.CnvToYYYYMMDD(custDate, '-');
 		String period		= mainAgentFrom.getPeriod();
 		String custType		= mainAgentFrom.getCustType();
 		
@@ -52,6 +54,7 @@ public class CreateCustomerAction extends Action {
 			if(chkCustomer==false){
 				createCustomerDB.AddCustomer(custID, custName, custAddr, custEmail, custDate, period, userName);
 				createCustomerDB.paymentCustomer(userName, custID, custName, custDate, Integer.parseInt(period));
+				massageAlert = "Save ข้อมูลเรียบร้อย !!!";
 			}else{
 				massageAlert = "มีข้อมูลลูกค้า ท่านนี้แล้ว !!!";
 			}

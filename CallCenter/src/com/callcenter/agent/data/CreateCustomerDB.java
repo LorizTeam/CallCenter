@@ -107,8 +107,8 @@ public class CreateCustomerDB {
 				DateUse 		= rs.getString("perioddate");
 			}
 			
-			sqlStmt = "INSERT IGNORE INTO payment_customer_list(custid, custname, docdate, type, period) " +
-			"VALUES ('"+custID+"', '"+custName+"', '"+DateUse+"', '1', "+i+")";
+			sqlStmt = "INSERT IGNORE INTO payment_customer_list(custid, custname, docdate, type, period, username) " +
+			"VALUES ('"+custID+"', '"+custName+"', '"+DateUse+"', '1', "+i+", '"+userName+"')";
 			//System.out.println(sqlStmt);
 			pStmt = conn.createStatement();
 			pStmt.executeUpdate(sqlStmt);
