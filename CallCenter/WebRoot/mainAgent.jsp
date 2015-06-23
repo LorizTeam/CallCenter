@@ -28,7 +28,7 @@
 		
 		<style>
 			body{
-				padding-top:50px;
+				padding-top:52px;
 				background-color:#f5f5f5;
 			}
 			

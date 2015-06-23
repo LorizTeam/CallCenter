@@ -45,7 +45,7 @@
 							</div>
 							<%String login = (String) session.getAttribute("login");
 							if(login =="0"){%>
-							Username and Password Incorrect
+							<div align="center"><font color="red">Username and Password Incorrect</font></div>
 							<%
 							} %>
 							<html:form action="/login" method="POST">
