@@ -45,18 +45,17 @@
 		</style>
 	</head>
 	<body>
-		<div class="container-fuild">
-				<nav class="navbar navbar-fixed-top navbar-inverse">
-	      			<div class="container">
-	        			<div class="navbar-header">
-	          				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-	            				<span class="sr-only">Toggle navigation</span>
-	            				<span class="icon-bar"></span>
-	            				<span class="icon-bar"></span>
-	            				<span class="icon-bar"></span>
-	          				</button>
-	          				<a class="navbar-brand" href="#">Call Center</a>
-	        			</div>
+		<nav class="navbar navbar-fixed-top navbar-inverse">
+	      	<div class="container">
+	        	<div class="navbar-header">
+	          		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	            		<span class="sr-only">Toggle navigation</span>
+	            		<span class="icon-bar"></span>
+	            		<span class="icon-bar"></span>
+	            		<span class="icon-bar"></span>
+	          		</button>
+	          		<a class="navbar-brand" href="#">Call Center</a>
+	        	</div>
 	        			<div id="navbar" class="collapse navbar-collapse">
 	          				<ul class="nav navbar-nav navbar-right">
 	            				<li align="right"><a href="#contact">Login Name : <%=name%> </a></li>
@@ -64,34 +63,11 @@
 	          				</ul>
 	        			</div><!-- /.nav-collapse -->
 	      			</div><!-- /.container -->
-    			</nav>
+    	</nav>
+		<div class="container-fuild">
+				
 				<div class="row">
-					<div class="col-md-12">
-						<div class="panel panel-info">
-							<div class="panel-heading"><h3 class="panel-title">Create Pattern Message</h3></div>
-							<div class="panel-body">
-								<div class="col-md-4">
-									<input type="text" class="form-control" placeholder="Title">
-								</div>
-								<div class="col-md-6">
-									<input type="text" class="form-control" placeholder="Message">
-								</div>
-								<div class="col-md-1">
-									<select class="form-control">
-										<option>Select Level</option>
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
-									</select>
-								</div>
-								<div class="col-md-1">
-									<a href="#" class="btn btn-info">Save</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
+					<div class="col-md-1"></div>
 					<div class="col-md-5">
 						<div class="panel panel-primary">
 							<div class="panel-heading"><h3 class="panel-title">Member Detail</h3></div>
@@ -171,65 +147,26 @@
 										</div>
 									</div>
 								</div>
-								<div class="row">
-									<div class="col-md-2">
-										<label><input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Send SMS</label>
-									</div>
-									<div class="col-md-2">
-										<label><input type="radio" name="optionsRadios" id="optionsRadios2" value="option1" checked>Not Send SMS</label>
-									</div>
-									<div class="col-md-6 form-inline">
-										<label>5</label>
-										<select class="form-control">
-											<option>เลือก</option>
-											<option>บริษัท TOYOTA</option>
-											<option>บริษัท HOME PRO</option>
-											<option>บริษัท อไหล่ยานยนต์</option>
-											<option>บริษัท INDEX</option>
-										</select>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-12">
-										<div class="panel panel-danger">
-											<div class="panel-heading"><h3 class="panel-title">Pattern Message SMS</h3></div>
-											<div class="panel-body">
-												สวัสดีค่ะบริษัท.... บริการโทรเตือนการชำระเงินค่าผ่อนรถยนต์<br/>
-												ซึ้งต้องจ่ายภายในวันที่....<br/>
-												เป็นจำนวนเงินทั้งหมด....<br/>
-												ขอบคุณค่ะ ...<br/>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-10"></div>
-									<div class="col-md-2">
-										<form action="#">
-											<input type="submit" class="form-control btn-info" value="Send"/>
-										</form>
-									</div>
-								</div>
+								
+								
 							</div>
 						</div>
 					</div>
-					<div class="col-md-7">
+					<div class="col-md-5">
 						<div class="panel panel-primary">
 							<div class="panel-heading"><h3 class="panel-title">Member List</h3></div>
 							<div class="panel-body">
 								
 									<form action="">
 										<div class="row">
-											<div class="col-md-2">
-					
-											</div>
-											<div class="col-md-2">
+											<div class=""></div>
+											<div class="col-md-3">
 												<input type="text" id="fromDate" name="fromDate" value="<%=fromDate%>" class="form-control" placeholder="Form Date">
 											</div>
-											<div class="col-md-2">
+											<div class="col-md-3">
 												<input type="text" id="toDate" name="toDate" value="<%=toDate%>" class="form-control" placeholder="To Date">
 											</div>
-											<div class="col-md-4 form-inline">
+											<div class="col-md-6 form-inline">
 												<input type="text" class="form-control" placeholder="Search">
 												<input class="btn btn-info" name="search" type="submit" value="Search" />
 											</div>
