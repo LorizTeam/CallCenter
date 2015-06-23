@@ -65,7 +65,7 @@ public class LoginAction extends Action {
 						forwardText = "success_agt";
 					}
 					
-					genaratePeriod(request, userName);
+				//	genaratePeriod(request, userName);
 					
 					List memberList = loginDB.MemberList("", "", "");
 					request.setAttribute("memberList", memberList);
@@ -104,7 +104,7 @@ private void genaratePeriod(HttpServletRequest request, String userName)throws E
 		String month 	= dateUtil.GetMM(date);
 		String day		= dateUtil.GetDD(date);
 		 
-	//	if(day.equals("01")&&month.equals("01")){
+		if(day.equals("01")&&month.equals("01")){
 			
 		int count = 0; boolean chkCustomer = false;
 		count = mainAgentDB.getCountMaster(userName);
@@ -112,7 +112,7 @@ private void genaratePeriod(HttpServletRequest request, String userName)throws E
 			for(int i=0,j=1; i<count; i++,j++){
 				chkCustomer = mainAgentDB.getCheckMaster(userName, i);
 				if(chkCustomer==false) mainAgentDB.paymentCustomerList(userName, year, i);
-	//		}
+			}
 		}
 	}
 }

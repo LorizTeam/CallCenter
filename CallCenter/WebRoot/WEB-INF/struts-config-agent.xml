@@ -39,6 +39,21 @@
     </action> 
   <!--################################      Agent Call    #################################-->
   
+  <!--################################     Create Customer     #################################-->
+   <action
+      attribute="mainAgentForm"
+      input="/createCustomer.jsp"
+      name="mainAgentForm"
+      path="/createCustomer"
+      scope="request"
+      type="com.callcenter.agent.action.CreateCustomerAction" >
+      
+      <forward name="search" path="/createCustomer.jsp" />
+      <forward name="success" path="/createCustomer.jsp" />
+      <forward name="cancle" path="/mainAgent.jsp" />
+    </action> 
+  <!--################################      Create Customer     #################################-->
+  
   </action-mappings>
   
   <message-resources key="agentResources" parameter="com.callcenter.struts.AgentResources" />

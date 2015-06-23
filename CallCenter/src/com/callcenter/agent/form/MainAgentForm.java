@@ -31,6 +31,8 @@ public class MainAgentForm extends ActionForm {
 	private String period;
 	private boolean isTrue;
 	
+	private String save = null;
+	private String update = null;
 	private String search = null;
 	private String next = null;
 	
@@ -128,6 +130,18 @@ public class MainAgentForm extends ActionForm {
 	}
 	public void setNext(String next) {
 		this.next = next;
+	}
+	public String getSave() {
+		return save;
+	}
+	public void setSave(String save) {
+		this.save = save;
+	}
+	public String getUpdate() {
+		return update;
+	}
+	public void setUpdate(String update) {
+		this.update = update;
 	}
 	
 
