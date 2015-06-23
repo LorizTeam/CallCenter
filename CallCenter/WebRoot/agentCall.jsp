@@ -6,7 +6,11 @@
 <%@ page import ="javax.servlet.http.HttpSession.*"%>
 <%@ page import="com.callcenter.agent.form.MainAgentForm" %>
 <%
+<<<<<<< HEAD
 	String fromDate = "", toDate = "", custID = "", name = "";
+=======
+	String fromDate = "", toDate = "", custID = "", name = "";;
+>>>>>>> 8ee6e5d6014084ea2fc351ef52b34c90426e5bd8
 	
 	if(request.getAttribute("fromDate")!=null){
 		fromDate = request.getAttribute("fromDate").toString();
@@ -14,9 +18,12 @@
 	if(request.getAttribute("toDate")!=null){
 		toDate = request.getAttribute("toDate").toString();
 	}
+<<<<<<< HEAD
 	if(request.getAttribute("custID")!=null){
 		custID = request.getAttribute("custID").toString();
 	}
+=======
+>>>>>>> 8ee6e5d6014084ea2fc351ef52b34c90426e5bd8
 	if(session.getAttribute("name") != null) {
 		name = (String) session.getAttribute("name");
 	}
@@ -32,6 +39,7 @@
 		
 		<style>
 			body{
+				padding-top:52px;
 				background-color:#f5f5f5;
 			}
 			
@@ -49,6 +57,25 @@
 	<body>
 		<html:form action="/agentCall" method="POST">
 		<div class="container-fuild">
+				<nav class="navbar navbar-fixed-top navbar-inverse">
+	      			<div class="container">
+	        			<div class="navbar-header">
+	          				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	            				<span class="sr-only">Toggle navigation</span>
+	            				<span class="icon-bar"></span>
+	            				<span class="icon-bar"></span>
+	            				<span class="icon-bar"></span>
+	          				</button>
+	          				<a class="navbar-brand" href="#">Call Center</a>
+	        			</div>
+	        			<div id="navbar" class="collapse navbar-collapse">
+	          				<ul class="nav navbar-nav navbar-right">
+	            				<li align="right"><a href="#contact">Login Name : <%=name%> </a></li>
+	            				<li align="right"><a href="#contact">Login out</a></li>
+	          				</ul>
+	        			</div><!-- /.nav-collapse -->
+	      			</div><!-- /.container -->
+    			</nav>
 				<div class="row">
 					<div class="col-md-12">
 						<div class="panel panel-info">
@@ -76,7 +103,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-5">
 						<div class="panel panel-primary">
 							<div class="panel-heading"><h3 class="panel-title">Member Detail</h3></div>
 							<div class="panel-body">
@@ -197,7 +224,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-7">
 						<div class="panel panel-primary">
 							<div class="panel-heading"><h3 class="panel-title">Member List</h3></div>
 							<div class="panel-body">
