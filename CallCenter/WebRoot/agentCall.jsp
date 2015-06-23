@@ -70,8 +70,8 @@
 	      		</div><!-- /.container -->
     		</nav>
 			<div class="row">
-				<div class="col-md-1"></div>
-				<div class="col-md-5">
+				<div class=""></div>
+				<div class="col-md-6">
 						<div class="panel panel-primary">
 							<div class="panel-heading"><h3 class="panel-title">Member Detail</h3></div>
 							<div class="panel-body">
@@ -155,17 +155,17 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-5">
+					<div class="col-md-6">
 						<div class="panel panel-primary">
 							<div class="panel-heading"><h3 class="panel-title">Member List</h3></div>
 							<div class="panel-body">
 								<html:form action="/agentCall" method="POST">
 									<div class="row">
 										<div class=""></div>
-										<div class="col-md-3">
+										<div class="col-md-2">
 											<input type="text" id="fromDate" name="fromDate" value="<%=fromDate%>" class="form-control" placeholder="Form Date">
 										</div>
-										<div class="col-md-3">
+										<div class="col-md-2">
 											<input type="text" id="toDate" name="toDate" value="<%=toDate%>" class="form-control" placeholder="To Date">
 										</div>
 										<div class="col-md-6 form-inline">
