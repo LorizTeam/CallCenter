@@ -48,7 +48,6 @@
 		</style>
 	</head>
 	<body>
-<<<<<<< HEAD
 		<nav class="navbar navbar-fixed-top navbar-inverse">
 	      	<div class="container">
 	        	<div class="navbar-header">
@@ -60,7 +59,6 @@
 	          		</button>
 	          		<a class="navbar-brand" href="#">Call Center</a>
 	        	</div>
-=======
 		<html:form action="/agentCall" method="POST">
 		<div class="container-fuild">
 				<nav class="navbar navbar-fixed-top navbar-inverse">
