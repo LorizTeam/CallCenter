@@ -41,8 +41,7 @@ public class MainAgentAction extends Action {
 		if(search!=null){
 		
 		request.setAttribute("fromDate", fromDate);
-		mainAgentFrom.setFromDate(fromDate);
-		mainAgentFrom.setToDate(toDate);	
+		request.setAttribute("toDate", toDate);	
 			
 		DateUtil dateUtil = new DateUtil();
 		if(!fromDate.equals("")) fromDate	= dateUtil.CnvToYYYYMMDD(fromDate, '-');

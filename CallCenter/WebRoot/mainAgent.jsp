@@ -5,6 +5,18 @@
 <%@ page import ="javax.servlet.http.HttpServletResponse.*"%>
 <%@ page import ="javax.servlet.http.HttpSession.*"%>
 <%@ page import="com.callcenter.agent.form.MainAgentForm" %>
+<%
+	String fromDate = "", toDate = "";
+	
+	if(request.getAttribute("fromDate")!=null){
+		fromDate = request.getAttribute("fromDate").toString();
+	}
+	if(request.getAttribute("toDate")!=null){
+		toDate = request.getAttribute("toDate").toString();
+	}
+ %>
+
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -64,10 +76,10 @@
 
 						</div>
 						<div class="col-md-2">
-							<input type="text" id="fromDate" name="fromDate" class="form-control" placeholder="Form Date">
+							<input type="text" id="fromDate" name="fromDate" value="<%=fromDate%>" class="form-control" placeholder="Form Date">
 						</div>
 						<div class="col-md-2">
-							<input type="text" id="toDate" name="toDate" class="form-control" placeholder="To Date">
+							<input type="text" id="toDate" name="toDate" value="<%=toDate%>" class="form-control" placeholder="To Date">
 						</div>
 						<div class="col-md-4 form-inline">
 							<input type="text" class="form-control" placeholder="Search">
