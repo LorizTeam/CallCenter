@@ -12,7 +12,7 @@
   
   <!--################################     Main Agent     #################################-->
    <action
-      attribute="loginForm"
+      attribute="mainAgentForm"
       input="/mainAgent.jsp"
       name="mainAgentForm"
       path="/mainAgent"
@@ -21,9 +21,23 @@
       
       <forward name="search" path="/mainAgent.jsp" />
       <forward name="success" path="/agentCall.jsp" />
-      <forward name="register" path="/RegisterNew.jsp" />
     </action> 
   <!--################################      Main Agent     #################################-->
+  
+  <!--################################      Agent Call     #################################-->
+   <action
+      attribute="mainAgentForm"
+      input="/agentCall.jsp"
+      name="mainAgentForm"
+      path="/agentCall"
+      scope="request"
+      type="com.callcenter.agent.action.AgentCallAction" >
+      
+      <forward name="cancle" path="/mainAgent.jsp" />
+      <forward name="search" path="/agentCall.jsp" />
+      <forward name="success" path="/agentCall.jsp" />
+    </action> 
+  <!--################################      Agent Call    #################################-->
   
   </action-mappings>
   

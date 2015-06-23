@@ -6,13 +6,19 @@
 <%@ page import ="javax.servlet.http.HttpSession.*"%>
 <%@ page import="com.callcenter.agent.form.MainAgentForm" %>
 <%
-	String fromDate = "", toDate = "";
+	String fromDate = "", toDate = "", custID = "", name = "";
 	
 	if(request.getAttribute("fromDate")!=null){
 		fromDate = request.getAttribute("fromDate").toString();
 	}
 	if(request.getAttribute("toDate")!=null){
 		toDate = request.getAttribute("toDate").toString();
+	}
+	if(request.getAttribute("custID")!=null){
+		custID = request.getAttribute("custID").toString();
+	}
+	if(session.getAttribute("name") != null) {
+		name = (String) session.getAttribute("name");
 	}
  %>
 <!DOCTYPE html>
@@ -41,6 +47,7 @@
 		</style>
 	</head>
 	<body>
+		<html:form action="/agentCall" method="POST">
 		<div class="container-fuild">
 				<div class="row">
 					<div class="col-md-12">
@@ -207,7 +214,7 @@
 												<input type="text" id="toDate" name="toDate" value="<%=toDate%>" class="form-control" placeholder="To Date">
 											</div>
 											<div class="col-md-4 form-inline">
-												<input type="text" class="form-control" placeholder="Search">
+												<input type="text" id="custID" name="custID" value="<%=custID%>" class="form-control" placeholder="Telephone">
 												<input class="btn btn-info" name="search" type="submit" value="Search" />
 											</div>
 										</div>
@@ -254,7 +261,7 @@
 					</div>
 				</div>
 		</div>
-		
+		</html:form>
 		<script src="js/bootstrap.js"></script>
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<script src="js/jquery-ui.js"></script>

@@ -6,11 +6,46 @@
   <StrutsActivity path="/agentCall.jsp" location="950,250" dimension="103,51" />
   <StrutsActivity path="/mindex.jsp" location="219,196" dimension="92,51" />
   <StrutsActivity path="/Home_Login.jsp" location="411,196" dimension="121,51" />
+  <StrutsActivity path="/agentCall.do" location="50,350" dimension="276,96" />
+  <StrutsTransition id="/agentCall.do,register,/RegisterNew.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="65,350" />
+      <AbsolutePoint location="65,247" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/agentCall.jsp,null,/agentCall.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1001,301" />
+      <AbsolutePoint location="1001,428" />
+      <AbsolutePoint location="326,428" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
   <StrutsTransition id="/mainAgent.jsp,null,/mainAgent.do,2" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="706,150" />
       <AbsolutePoint location="706,128" />
       <AbsolutePoint location="950,128" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/agentCall.do,cancle,/mainAgent.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="326,368" />
+      <AbsolutePoint location="706,368" />
+      <AbsolutePoint location="706,201" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/agentCall.do,cancel,/agentCall.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="326,398" />
+      <AbsolutePoint location="971,398" />
+      <AbsolutePoint location="971,301" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/agentCall.do,cancle,/agentCall.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="326,398" />
+      <AbsolutePoint location="971,398" />
+      <AbsolutePoint location="971,301" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/mainAgent.do,register,/RegisterNew.jsp,1" routingType="0">
@@ -20,17 +55,31 @@
       <AbsolutePoint location="59,196" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/mainAgent.do,error,/mainAgent.jsp,1" routingType="0">
+  <StrutsTransition id="/agentCall.do,search,/agentCall.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="1045,146" />
-      <AbsolutePoint location="1045,175" />
-      <AbsolutePoint location="762,175" />
+      <AbsolutePoint location="326,398" />
+      <AbsolutePoint location="971,398" />
+      <AbsolutePoint location="971,301" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/agentCall.do,search,/mainAgent.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="326,368" />
+      <AbsolutePoint location="706,368" />
+      <AbsolutePoint location="706,201" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/mainAgent.do,success,/agentCall.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="1075,98" />
       <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/agentCall.do,success,/agentCall.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="188,350" />
+      <AbsolutePoint location="188,275" />
+      <AbsolutePoint location="950,275" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/mainAgent.do,search,/mainAgent.jsp,1" routingType="0">

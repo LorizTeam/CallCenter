@@ -65,7 +65,7 @@
         			<div id="navbar" class="collapse navbar-collapse">
           				<ul class="nav navbar-nav navbar-right">
             				<li align="right"><a href="#contact">Login Name : <%=name%> </a></li>
-            				<li align="right"><a href="#contact">Login out</a></li>
+            				<li align="right"><a href="/CallCenter/login.jsp">Log Out</a></li>
           				</ul>
         			</div><!-- /.nav-collapse -->
       			</div><!-- /.container -->
@@ -75,7 +75,7 @@
 					<h3 class="panel-title">Agent</h3>
 				</div>
 				<div class="panel-body">
-				<html:form action="/mainAgent" method="POST">
+				<html:form action="/agentCall" method="POST">
 					<div class="container">
 					<div class="row">
 						<div class="col-md-2">
