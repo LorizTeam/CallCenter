@@ -5,7 +5,12 @@
 <%@ page import ="javax.servlet.http.HttpServletResponse.*"%>
 <%@ page import ="javax.servlet.http.HttpSession.*"%>
 <%@ page import="com.callcenter.agent.form.MainAgentForm" %>
-
+<%
+	String name = "";
+	if(session.getAttribute("name") != null) {
+		name = (String) session.getAttribute("name");
+	}
+ %>
 
 <!DOCTYPE html>
 <html>
@@ -53,6 +58,72 @@
         			</div><!-- /.nav-collapse -->
       			</div><!-- /.container -->
     		</nav>
+		</div>
+		<div class="container">
+			<div class="panel panel-primary">
+				<div class="panel-heading"><h3 class="panel-title">Create Customer</h3></div>
+				<div class="panel-body">
+					<div class="container">
+						<div><br/></div>
+						<form action="">
+						<div class="row">
+							<div class="col-md-2" align="right">
+								<label>เบอร์โทรศัพท์</label>
+							</div>
+							<div class="col-md-3">
+								<input type="text" id="custID" name="custID" class="form-control" placeholder="Telephone">
+							</div>
+							<div class="col-md-2" align="right">
+								<label>ชื่อ - นามสกุล</label>
+							</div>
+							<div class="col-md-3">
+								<input type="text" id="custName" name="custName" class="form-control" placeholder="Full Name">
+							</div>
+						</div>
+						<div><br/></div>
+						<div class="row">
+							<div class="col-md-2" align="right">
+								<label>งบรอบเดือน</label>
+							</div>
+							<div class="col-md-3">
+								<input type="text" id="period" name="period" class="form-control" placeholder="Preiod">
+							</div>
+							<div class="col-md-2" align="right">
+								<label>วันที่เริ่มจ่ายงวดแรก</label>
+							</div>
+							<div class="col-md-3">
+								<input type="text" id="custDate" name="custDate" class="form-control" placeholder="Date">
+							</div>
+						</div>
+						<div><br/></div>
+						<div class="row">
+							<div class="col-md-2" align="right">
+								<label>Email</label>
+							</div>
+							<div class="col-md-8">
+								<input type="text" id="custEmail" name="custEmail" class="form-control" placeholder="exsample@email.com">
+							</div>
+						</div>
+						<div><br/></div>
+						<div class="row">
+							<div class="col-md-2" align="right">
+								<label>ที่อยู่</label>
+							</div>
+							<div class="col-md-8">
+								<textarea class="form-control" id="custAddr" name="custAddr" rows="5"></textarea>
+							</div>
+						</div>
+						<div><br/></div>
+						<div class="row">
+							<div class="col-md-10" align="right">
+								<input type="submit" class="btn btn-info" value="Save"/>
+							</div>
+						</div>
+					</form>
+					</div>
+					
+				</div>
+			</div>
 		</div>
 		
 		<script src="js/bootstrap.js"></script>
