@@ -6,11 +6,7 @@
 <%@ page import ="javax.servlet.http.HttpSession.*"%>
 <%@ page import="com.callcenter.agent.form.MainAgentForm" %>
 <%
-<<<<<<< HEAD
 	String fromDate = "", toDate = "", custID = "", name = "";
-=======
-	String fromDate = "", toDate = "", custID = "", name = "";;
->>>>>>> 8ee6e5d6014084ea2fc351ef52b34c90426e5bd8
 	
 	if(request.getAttribute("fromDate")!=null){
 		fromDate = request.getAttribute("fromDate").toString();
@@ -18,12 +14,9 @@
 	if(request.getAttribute("toDate")!=null){
 		toDate = request.getAttribute("toDate").toString();
 	}
-<<<<<<< HEAD
 	if(request.getAttribute("custID")!=null){
 		custID = request.getAttribute("custID").toString();
 	}
-=======
->>>>>>> 8ee6e5d6014084ea2fc351ef52b34c90426e5bd8
 	if(session.getAttribute("name") != null) {
 		name = (String) session.getAttribute("name");
 	}
