@@ -1,9 +1,10 @@
-<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*"  pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%> 
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ page import ="javax.servlet.http.HttpServletRequest.*"%>
 <%@ page import ="javax.servlet.http.HttpServletResponse.*"%>
 <%@ page import ="javax.servlet.http.HttpSession.*"%>
+<%@ page import="com.callcenter.agent.form.MainAgentForm" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -194,142 +195,27 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td align="center">1</td>
-											<td>0993511516</td>
-											<td>วิไล เคียงประดู่</td>
-											<td>1</td>
-											<td>10,000 บาท</td>
-											<td>10-06-2015</td>
-										</tr>
-										<tr>
-											<td align="center">2</td>
-											<td>0993916250 </td>
-											<td>ภาณุวัฒน์ ไทยวัฒนานนท์</td>
-											<td>1</td>
-											<td>10,000 บาท</td>
-											<td>10-06-2015</td>
-										</tr>
-										<tr>
-											<td align="center">3</td>
-											<td>0990504971</td>
-											<td>พงศ์นรินทร์ อุลิศ</td>
-											<td>2</td>
-											<td>10,000 บาท</td>
-											<td>10-06-2015</td>
-										</tr>
-										<tr>
-											<td align="center">4</td>
-											<td>0993504194</td>
-											<td>สมิทธิ์ บุญชุติมา</td>
-											<td>3</td>
-											<td>10,000 บาท</td>
-											<td>10-06-2015</td>
-										</tr>
-										<tr>
-											<td align="center">5</td>
-											<td>0993562253</td>
-											<td>สุรชัย แก้วพิชัย</td>
-											<td>1</td>
-											<td>10,000 บาท</td>
-											<td>10-06-2015</td>
-										</tr>
-										<tr>
-											<td align="center">6</td>
-											<td>0993504194</td>
-											<td>สมิทธิ์ บุญชุติมา</td>
-											<td>3</td>
-											<td>10,000 บาท</td>
-											<td>10-06-2015</td>
-										</tr>
-										<tr>
-											<td align="center">7</td>
-											<td>0993562253</td>
-											<td>สุรชัย แก้วพิชัย</td>
-											<td>1</td>
-											<td>10,000 บาท</td>
-											<td>10-06-2015</td>
-										</tr>
-										<tr>
-											<td align="center">8</td>
-											<td>0993504194</td>
-											<td>สมิทธิ์ บุญชุติมา</td>
-											<td>3</td>
-											<td>10,000 บาท</td>
-											<td>10-06-2015</td>
-										</tr>
-										<tr>
-											<td align="center">9</td>
-											<td>0993562253</td>
-											<td>สุรชัย แก้วพิชัย</td>
-											<td>1</td>
-											<td>10,000 บาท</td>
-											<td>10-06-2015</td>
-										</tr>
-										<tr>
-											<td align="center">10</td>
-											<td>0993504194</td>
-											<td>สมิทธิ์ บุญชุติมา</td>
-											<td>3</td>
-											<td>10,000 บาท</td>
-											<td>10-06-2015</td>
-										</tr>
-										<tr>
-											<td align="center">11</td>
-											<td>0993562253</td>
-											<td>สุรชัย แก้วพิชัย</td>
-											<td>1</td>
-											<td>10,000 บาท</td>
-											<td>10-06-2015</td>
-										</tr>
-										<tr>
-											<td align="center">12</td>
-											<td>0993504194</td>
-											<td>สมิทธิ์ บุญชุติมา</td>
-											<td>3</td>
-											<td>10,000 บาท</td>
-											<td>10-06-2015</td>
-										</tr>
-										<tr>
-											<td align="center">13</td>
-											<td>0993562253</td>
-											<td>สุรชัย แก้วพิชัย</td>
-											<td>1</td>
-											<td>10,000 บาท</td>
-											<td>10-06-2015</td>
-										</tr>
-										<tr>
-											<td align="center">14</td>
-											<td>0993504194</td>
-											<td>สมิทธิ์ บุญชุติมา</td>
-											<td>3</td>
-											<td>10,000 บาท</td>
-											<td>10-06-2015</td>
-										</tr>
-										<tr>
-											<td align="center">15</td>
-											<td>0993562253</td>
-											<td>สุรชัย แก้วพิชัย</td>
-											<td>1</td>
-											<td>10,000 บาท</td>
-											<td>10-06-2015</td>
-										</tr>
-										<tr>
-											<td align="center">16</td>
-											<td>0993504194</td>
-											<td>สมิทธิ์ บุญชุติมา</td>
-											<td>3</td>
-											<td>10,000 บาท</td>
-											<td>10-06-2015</td>
-										</tr>
-										<tr>
-											<td align="center">17</td>
-											<td>0993562253</td>
-											<td>สุรชัย แก้วพิชัย</td>
-											<td>1</td>
-											<td>10,000 บาท</td>
-											<td>10-06-2015</td>
-										</tr>
+									<%	if (request.getAttribute("customerList") != null) {
+									
+									List customerList = (List)request.getAttribute("customerList");
+									int x = 0;
+									for (Iterator iter = customerList.iterator(); iter.hasNext();) {
+							  			x++;
+							  			MainAgentForm custList = (MainAgentForm) iter.next();
+									%>
+									<tr>
+										<td align="center"><%=x%></td>
+										<td><%=custList.getCustID()%></td>
+										<td><%=custList.getCustName()%></td>
+										<td><%=custList.getCustType()%></td>
+										<td><%=custList.getPeriod()%></td>
+										<td><%=custList.getCustDate()%></td>
+									</tr>
+									<%		} 
+							 			} else {
+									%>
+									<tr><td align="center" colspan="4">No Data Found</td></tr>
+									<%	} %>
 									</tbody>
 								</table>
 							</div>

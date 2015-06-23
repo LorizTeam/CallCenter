@@ -37,10 +37,6 @@ public class LoginAction extends Action {
 		HttpSession session = request.getSession();
 		String userName = loginForm.getUserName();
 		String passWord = loginForm.getPassWord();
-		 
-		DateUtil dateUtil = new DateUtil();
-		
-		String chkDate = dateUtil.curDate();
 		
 		String forwardText = null;
 	//	System.out.println("ipAddress : "+ipAddress);
@@ -69,9 +65,19 @@ public class LoginAction extends Action {
 						forwardText = "success_agt";
 					}
 					
+					genaratePeriod(request, userName);
+					
 					List memberList = loginDB.MemberList("", "", "");
 					request.setAttribute("memberList", memberList);
-				 
+					
+					DateUtil dateUtil = new DateUtil();
+					String date 	= dateUtil.curDate();
+					date = dateUtil.CnvToYYYYMMDD(date, '-');
+					
+					MainAgentDB mainAgentDB = new MainAgentDB();
+					List customerList = mainAgentDB.GetCustomerList(date, "", "");
+					request.setAttribute("customerList", customerList);
+					
 					loginForm.reset();
 			
 			} else {
@@ -87,5 +93,26 @@ public class LoginAction extends Action {
 			forwardText = "error";
 		}
 		return mapping.findForward(forwardText);
+	}
+private void genaratePeriod(HttpServletRequest request, String userName)throws Exception {
+
+		MainAgentDB mainAgentDB = new MainAgentDB();
+		DateUtil dateUtil = new DateUtil();
+		String date 	= dateUtil.curDate();
+		date = dateUtil.CnvToYYYYMMDD(date, '-');
+		String year 	= dateUtil.GetYYYY(date);
+		String month 	= dateUtil.GetMM(date);
+		String day		= dateUtil.GetDD(date);
+		 
+	//	if(day.equals("01")&&month.equals("01")){
+			
+		int count = 0; boolean chkCustomer = false;
+		count = mainAgentDB.getCountMaster(userName);
+		
+			for(int i=0,j=1; i<count; i++,j++){
+				chkCustomer = mainAgentDB.getCheckMaster(userName, i);
+				if(chkCustomer==false) mainAgentDB.paymentCustomerList(userName, year, i);
+	//		}
+		}
 	}
 }

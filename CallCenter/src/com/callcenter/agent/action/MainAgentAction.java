@@ -14,9 +14,10 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.omg.CORBA.Request;
 
 import com.callcenter.agent.data.MainAgentDB;
-import com.callcenter.login.form.LoginForm;
+import com.callcenter.agent.form.MainAgentForm;
 import com.callcenter.util.DateUtil;
 
 public class MainAgentAction extends Action {
@@ -27,8 +28,58 @@ public class MainAgentAction extends Action {
 		HttpSession session = request.getSession();
 		userName = (String) session.getAttribute("name");
 		 
-		String forwardText = "success";
+		String forwardText = null;
 	
+		MainAgentForm mainAgentFrom = (MainAgentForm) form;
+		
+	//	String fromDate = (String) request.getParameter("fromDate");
+		String fromDate = mainAgentFrom.getFromDate();
+		String toDate 	= mainAgentFrom.getToDate();
+		String search 	= mainAgentFrom.getSearch();
+		String next 	= mainAgentFrom.getNext();
+		
+		if(search!=null){
+		
+		request.setAttribute("fromDate", fromDate);
+		mainAgentFrom.setFromDate(fromDate);
+		mainAgentFrom.setToDate(toDate);	
+			
+		DateUtil dateUtil = new DateUtil();
+		if(!fromDate.equals("")) fromDate	= dateUtil.CnvToYYYYMMDD(fromDate, '-');
+		if(!toDate.equals("")) 	 toDate 	= dateUtil.CnvToYYYYMMDD(toDate, '-');
+		
+		
+		MainAgentDB mainAgentDB = new MainAgentDB();
+		List customerList = mainAgentDB.GetCustomerList("", fromDate, toDate);
+		request.setAttribute("customerList", customerList);
+		
+		forwardText = "search";
+		
+		}else{
+			
+		DateUtil dateUtil = new DateUtil();
+		String date 	= dateUtil.curDate();
+		date = dateUtil.CnvToYYYYMMDD(date, '-');	
+			
+		MainAgentDB mainAgentDB = new MainAgentDB();
+		List customerList = mainAgentDB.GetCustomerList(date, "", "");
+		request.setAttribute("customerList", customerList);	
+		
+		forwardText = "search";
+		}
+		if(next!=null){
+			DateUtil dateUtil = new DateUtil();
+			if(!fromDate.equals("")) fromDate	= dateUtil.CnvToYYYYMMDD(fromDate, '-');
+			if(!toDate.equals("")) 	 toDate 	= dateUtil.CnvToYYYYMMDD(toDate, '-');
+			
+			MainAgentDB mainAgentDB = new MainAgentDB();
+			List customerList = mainAgentDB.GetCustomerList("", fromDate, toDate);
+
+			request.setAttribute("customerList", customerList);	
+			
+			forwardText = "success";
+		}
+		
 		return mapping.findForward(forwardText);
 	}
 	
@@ -52,7 +103,7 @@ private void genaratePeriod(HttpServletRequest request)throws Exception {
 		count = mainAgentDB.getCountMaster("01745");
 		
 			for(int i=0,j=1; i<count; i++,j++){
-				mainAgentDB.paymentCustomerList("01745", year, i, j);
+				mainAgentDB.paymentCustomerList("01745", year, i);
 			}
 		}
 	}

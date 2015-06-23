@@ -73,6 +73,18 @@ public class DateUtil {
 		ansDate = (dd+"/"+mm+"/"+yyyy);
 		return ansDate;
 	}
+	public String CnvToDDMMYYYY1(String date) {
+//		 input yyyy/mm/dd >>>  dd/mm/yyyy
+		String ansDate;
+		String dd;
+		String mm;
+		String yyyy;
+		dd = date.substring(8,10);
+		mm = date.substring(5,7);
+		yyyy = date.substring(0,4);
+		ansDate = (dd+"-"+mm+"-"+yyyy);
+		return ansDate;
+	}
 	public String CnvToMMDDYYYY(String date) {
 //		 input yyyy/mm/dd >>>  mm/dd/yyyy
 		String ansDate;

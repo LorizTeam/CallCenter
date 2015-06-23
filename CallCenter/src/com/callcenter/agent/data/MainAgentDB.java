@@ -3,9 +3,12 @@ package com.callcenter.agent.data;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
-import com.callcenter.login.form.LoginForm;
+import com.callcenter.agent.form.MainAgentForm;
 import com.callcenter.util.DBConnect;
 import com.callcenter.util.DateUtil;
 
@@ -16,36 +19,47 @@ public class MainAgentDB {
 	Statement pStmt 	= null;
 	Statement pStmt1 	= null;
 	ResultSet rs		= null;
-
+	DateUtil dateUtil = new DateUtil();
 	
-	public LoginForm checkLogin(String userName, String passWord) throws Exception {
+	public List GetCustomerList(String custDate, String fromDate, String toDate) 
+	throws Exception { //30-05-2014
+		List customerList = new ArrayList();
+		String custID = "", custName = "", docDate = "", custType = "", period = "" ;
+		try {
 		
-		DBConnect agent = new DBConnect();
-		Connection connDB = null;
-	 	connDB = agent.getConnectMYSql();
-		ResultSet rs = null;
-		LoginForm loginForm = new LoginForm();
-		
-		String sql = "SELECT username, password, name, type " +
-				     "FROM employee " +
-				     "WHERE username = '"+userName+"' ";
-		PreparedStatement pstmt = connDB.prepareStatement(sql);
-
-		rs = pstmt.executeQuery();
-		if(rs.next()) {
-			loginForm.setTrue(true);
-			loginForm.setUserName(rs.getString("username"));
-			loginForm.setPassWord(rs.getString("password"));
-			loginForm.setName(rs.getString("name"));
-			loginForm.setType(rs.getString("type"));
+			conn = agent.getConnectMYSql();
+			
+			String sqlStmt = "SELECT custid, custname, docdate, type, period " +
+			"FROM payment_customer_list " +
+			"WHERE "; 
+			if(!custDate.equals("")) sqlStmt = sqlStmt+ "docdate between '"+custDate+"' AND date_add('"+custDate+"',INTERVAL 7 day) AND ";
+			if(!fromDate.equals("")) sqlStmt = sqlStmt+ "docdate >= '"+fromDate+"' AND ";
+			if(!toDate.equals("")) sqlStmt = sqlStmt+ "docdate <= '"+toDate+"' AND ";
+			
+			sqlStmt = sqlStmt + "custid <> '' group by custid, period order by custid";
+			
+			//System.out.println(sqlStmt);				
+			pStmt = conn.createStatement();
+			rs = pStmt.executeQuery(sqlStmt);	
+			while (rs.next()) {
+				if (rs.getString("custid") != null) custID = rs.getString("custid"); else custID = "";
+				if (rs.getString("custname") != null) custName = rs.getString("custname"); else custName = "";
+				if (rs.getString("docdate") != null) docDate = rs.getString("docdate"); else docDate = "";
+				if (rs.getString("type") != null) custType = rs.getString("type"); else custType = "";
+				if (rs.getString("period") != null) period = rs.getString("period"); else period = "";
+				
+				docDate = dateUtil.CnvToDDMMYYYY1(docDate);
+				
+				customerList.add(new MainAgentForm(custID, custName, docDate, custType, period));
+			}
+			rs.close();
+			pStmt.close();
+			conn.close();
+		} catch (SQLException e) {
+		    throw new Exception(e.getMessage());
 		}
-		
-		if(connDB != null) {
-			connDB.close();
-		}
-		
-		return loginForm;
-	}
+		return customerList;
+	 }
 
 	public String getDateMaster(String userName) throws Exception 
 		{
@@ -91,16 +105,50 @@ public class MainAgentDB {
 	
 	return i;
 }
-	public void paymentCustomerList(String userName, String year, int index1, int index2) throws Exception {
-		String custID = "", custName = "", docDate = "", period = "", day = "";
-		String[] month = new String[12];
-		month[0] = "01"; month[1] = "02"; month[2] = "03"; month[3] = "04"; month[4] = "05"; month[5] = "06";
-		month[6] = "07"; month[7] = "08"; month[8] = "09"; month[9] = "10"; month[10] = "11"; month[11] = "12";
-		
+	public boolean getCheckMaster(String userName, int index1) throws Exception {
+		boolean chkCustomer = false;
+	String name1 = "", name2 = "";
+	conn = agent.getConnectMYSql();
+ 	
+ 	String sqlStmt = "SELECT custid " +
+	"FROM customer WHERE username = '"+userName+"' limit "+index1+",1 ";
+ 	
+ 	pStmt = conn.createStatement();
+	rs = pStmt.executeQuery(sqlStmt);	
+	
+	while (rs.next()) {
+		name1 = rs.getString("custid");
+	}
+	
+	rs.close();
+	pStmt.close();
+	
+	sqlStmt = "SELECT DISTINCT(custid) as custid " +
+	"FROM payment_customer_list ";
+ 	
+ 	pStmt = conn.createStatement();
+	rs = pStmt.executeQuery(sqlStmt);	
+	
+	while (rs.next()) {
+		name2 = rs.getString("custid");
+	}
+	
+	rs.close();
+	pStmt.close();
+	
+	if(name1.equals(name2)) chkCustomer = true;
+	
+	conn.close();
+	
+	return chkCustomer;
+}
+	public void paymentCustomerList(String userName, String year, int index1) throws Exception {
+		String custID = "", custName = "", docDate = "",  DateUse = ""; int period = 0;
+	
 		conn = agent.getConnectMYSql();
 		
-		String sqlStmt = "SELECT custid, custname, custaddr, custemail, custdate " +
-		"FROM customer WHERE username = '"+userName+"' limit "+index1+","+index2+" ";
+		String sqlStmt = "SELECT custid, custname, custaddr, custemail, custdate, period " +
+		"FROM customer WHERE username = '"+userName+"' limit "+index1+",1 ";
 	 	
 	 	pStmt = conn.createStatement();
 		rs = pStmt.executeQuery(sqlStmt);	
@@ -109,57 +157,30 @@ public class MainAgentDB {
 			custID 		= rs.getString("custid");
 			custName 	= rs.getString("custname");
 			docDate		= rs.getString("custdate");
-		//	period		= rs.getString("period");
-		
-		day = docDate.substring(8, 10);
-		String DateUse = "";
-		
-		for(int i=1,j=0; i<=12; i++,j++){
+			period		= Integer.parseInt(rs.getString("period"));
 			
-			if (month[j].equals("02")&&Integer.parseInt(day)>=29){ 
-				DateUse = year+"-"+month[j]+"-28"; 
-			}else if(month[j].equals("04")&&Integer.parseInt(day)>=31){ 
-				DateUse = year+"-"+month[j]+"-30";
-			}else if(month[j].equals("06")&&Integer.parseInt(day)>=31){ 
-				DateUse = year+"-"+month[j]+"-30";
-			}else if(month[j].equals("09")&&Integer.parseInt(day)>=31){ 
-				DateUse = year+"-"+month[j]+"-30";
-			}else if(month[j].equals("11")&&Integer.parseInt(day)>=31){ 
-				DateUse = year+"-"+month[j]+"-30";
-			}else{
-				DateUse = year+"-"+month[j]+"-"+day;
-			}
+		for(int i=1,j=0; i<=period; i++,j++){
 			
-			addListCustomer(custID, custName, i, year, day, DateUse);
-			
-		}	
-		
-		}	
-		
-		if(conn != null) {
-			conn.close();
-		}	
-	}
-private void addListCustomer(String custID, String custName, int thisMonth, String year, String day, String DateUse) throws Exception {
-		String sqlStmt = "";
-		
-	/*	if(thisMonth==1){
-			sqlStmt = "SELECT DATE_ADD('"+DateUse+"',INTERVAL 1 MONTH) as dateadd ";
+			sqlStmt = "SELECT DATE_ADD('"+docDate+"',INTERVAL "+j+" MONTH) as perioddate FROM customer WHERE username = '"+userName+"' limit "+index1+",1 ";
 			pStmt = conn.createStatement();
 			rs = pStmt.executeQuery(sqlStmt);	
 			
 			while (rs.next()) {
-				DateUse = rs.getString("dateadd");
+				DateUse 		= rs.getString("perioddate");
 			}
-		}  */
-		
-		sqlStmt = "INSERT IGNORE INTO payment_customer_list(custid, custname, docdate, type) " +
-					"VALUES ('"+custID+"', '"+custName+"', '"+DateUse+"', '1')";
-		//System.out.println(sqlStmt);
-	    pStmt = conn.createStatement();
-		pStmt.executeUpdate(sqlStmt);
-		pStmt.close();
-		
+			
+			sqlStmt = "INSERT IGNORE INTO payment_customer_list(custid, custname, docdate, type, period) " +
+			"VALUES ('"+custID+"', '"+custName+"', '"+DateUse+"', '1', "+i+")";
+			//System.out.println(sqlStmt);
+			pStmt = conn.createStatement();
+			pStmt.executeUpdate(sqlStmt);
+			pStmt.close();
+			
+		}	
+	}	
+		if(conn != null) {
+			conn.close();
+		}	
 	}
 private String addListCustomer1(String custID, String custName, int thisMonth, String year, String day, boolean chkDay) throws Exception {
 		
