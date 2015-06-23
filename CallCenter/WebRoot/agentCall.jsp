@@ -6,7 +6,11 @@
 <%@ page import ="javax.servlet.http.HttpSession.*"%>
 <%@ page import="com.callcenter.agent.form.MainAgentForm" %>
 <%
+<<<<<<< HEAD
+	String fromDate = "", toDate = "", custID = "", name = "";
+=======
 	String fromDate = "", toDate = "", custID = "", name = "";;
+>>>>>>> 8ee6e5d6014084ea2fc351ef52b34c90426e5bd8
 	
 	if(request.getAttribute("fromDate")!=null){
 		fromDate = request.getAttribute("fromDate").toString();
@@ -14,6 +18,12 @@
 	if(request.getAttribute("toDate")!=null){
 		toDate = request.getAttribute("toDate").toString();
 	}
+<<<<<<< HEAD
+	if(request.getAttribute("custID")!=null){
+		custID = request.getAttribute("custID").toString();
+	}
+=======
+>>>>>>> 8ee6e5d6014084ea2fc351ef52b34c90426e5bd8
 	if(session.getAttribute("name") != null) {
 		name = (String) session.getAttribute("name");
 	}
@@ -45,6 +55,7 @@
 		</style>
 	</head>
 	<body>
+<<<<<<< HEAD
 		<nav class="navbar navbar-fixed-top navbar-inverse">
 	      	<div class="container">
 	        	<div class="navbar-header">
@@ -56,6 +67,21 @@
 	          		</button>
 	          		<a class="navbar-brand" href="#">Call Center</a>
 	        	</div>
+=======
+		<html:form action="/agentCall" method="POST">
+		<div class="container-fuild">
+				<nav class="navbar navbar-fixed-top navbar-inverse">
+	      			<div class="container">
+	        			<div class="navbar-header">
+	          				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	            				<span class="sr-only">Toggle navigation</span>
+	            				<span class="icon-bar"></span>
+	            				<span class="icon-bar"></span>
+	            				<span class="icon-bar"></span>
+	          				</button>
+	          				<a class="navbar-brand" href="#">Call Center</a>
+	        			</div>
+>>>>>>> origin/master
 	        			<div id="navbar" class="collapse navbar-collapse">
 	          				<ul class="nav navbar-nav navbar-right">
 	            				<li align="right"><a href="#contact">Login Name : <%=name%> </a></li>
@@ -166,8 +192,13 @@
 											<div class="col-md-3">
 												<input type="text" id="toDate" name="toDate" value="<%=toDate%>" class="form-control" placeholder="To Date">
 											</div>
+<<<<<<< HEAD
 											<div class="col-md-6 form-inline">
 												<input type="text" class="form-control" placeholder="Search">
+=======
+											<div class="col-md-4 form-inline">
+												<input type="text" id="custID" name="custID" value="<%=custID%>" class="form-control" placeholder="Telephone">
+>>>>>>> origin/master
 												<input class="btn btn-info" name="search" type="submit" value="Search" />
 											</div>
 										</div>
@@ -214,7 +245,7 @@
 					</div>
 				</div>
 		</div>
-		
+		</html:form>
 		<script src="js/bootstrap.js"></script>
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<script src="js/jquery-ui.js"></script>
