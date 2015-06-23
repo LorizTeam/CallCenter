@@ -108,7 +108,7 @@
 								</div>
 								<div><br/></div>
 								<div class="row">
-									<div class="col-md-3">
+									<div class="col-md-2">
 										<label>Call Level</label>
 										<select class="form-control">
 											<option>1</option>
@@ -116,7 +116,7 @@
 											<option>3</option>
 										</select>
 									</div>
-									<div class="col-md-3">
+									<div class="col-md-2">
 										<label>Call Type</label>
 										<select class="form-control">
 											<option>เลือก</option>
@@ -124,7 +124,7 @@
 											<option>ติดต่อได้</option>
 										</select>
 									</div>
-									<div class="col-md-6">
+									<div class="col-md-3">
 										<label>Select Pattern Message</label>
 										<select class="form-control">
 											<option>เลือก</option>

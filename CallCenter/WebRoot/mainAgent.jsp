@@ -78,9 +78,7 @@
 				<html:form action="/agentCall" method="POST">
 					<div class="container">
 					<div class="row">
-						<div class="col-md-2">
-
-						</div>
+						<div class="col-md-1"></div>
 						<div class="col-md-2">
 							<input type="text" id="fromDate" name="fromDate" value="<%=fromDate%>" class="form-control" placeholder="Form Date">
 						</div>
@@ -90,6 +88,9 @@
 						<div class="col-md-4 form-inline">
 							<input type="text" id="custID" name="custID" value="<%=custID%>" class="form-control" placeholder="Telephone">
 							<input class="btn btn-info" name="search" type="submit" value="Search" />
+						</div>
+						<div class="col-md-2">
+							<input class="btn btn-info" name="search" type="submit" value="Create Customer" />
 						</div>
 					</div>
 					<div><br/></div>
