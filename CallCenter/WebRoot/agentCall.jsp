@@ -48,44 +48,29 @@
 		</style>
 	</head>
 	<body>
-		<nav class="navbar navbar-fixed-top navbar-inverse">
-	      	<div class="container">
-	        	<div class="navbar-header">
-	          		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-	            		<span class="sr-only">Toggle navigation</span>
-	            		<span class="icon-bar"></span>
-	            		<span class="icon-bar"></span>
-	            		<span class="icon-bar"></span>
-	          		</button>
-	          		<a class="navbar-brand" href="#">Call Center</a>
-	        	</div>
-		<html:form action="/agentCall" method="POST">
 		<div class="container-fuild">
-				<nav class="navbar navbar-fixed-top navbar-inverse">
-	      			<div class="container">
-	        			<div class="navbar-header">
-	          				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-	            				<span class="sr-only">Toggle navigation</span>
-	            				<span class="icon-bar"></span>
-	            				<span class="icon-bar"></span>
-	            				<span class="icon-bar"></span>
-	          				</button>
-	          				<a class="navbar-brand" href="#">Call Center</a>
-	        			</div>
->>>>>>> origin/master
-	        			<div id="navbar" class="collapse navbar-collapse">
-	          				<ul class="nav navbar-nav navbar-right">
-	            				<li align="right"><a href="#contact">Login Name : <%=name%> </a></li>
-	            				<li align="right"><a href="#contact">Login out</a></li>
-	          				</ul>
-	        			</div><!-- /.nav-collapse -->
-	      			</div><!-- /.container -->
-    	</nav>
-		<div class="container-fuild">
-				
-				<div class="row">
-					<div class="col-md-1"></div>
-					<div class="col-md-5">
+			<nav class="navbar navbar-fixed-top navbar-inverse">
+	      		<div class="container">
+	        		<div class="navbar-header">
+	          			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	            			<span class="sr-only">Toggle navigation</span>
+	            			<span class="icon-bar"></span>
+	            			<span class="icon-bar"></span>
+	            			<span class="icon-bar"></span>
+	          			</button>
+	          			<a class="navbar-brand" href="#">Call Center</a>
+	        		</div>
+	        		<div id="navbar" class="collapse navbar-collapse">
+	          			<ul class="nav navbar-nav navbar-right">
+	            			<li align="right"><a href="#contact">Login Name : <%=name%> </a></li>
+	            			<li align="right"><a href="/CallCenter/login.jsp">Log Out</a></li>
+	          			</ul>
+	        		</div><!-- /.nav-collapse -->
+	      		</div><!-- /.container -->
+    		</nav>
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-5">
 						<div class="panel panel-primary">
 							<div class="panel-heading"><h3 class="panel-title">Member Detail</h3></div>
 							<div class="panel-body">
@@ -173,28 +158,21 @@
 						<div class="panel panel-primary">
 							<div class="panel-heading"><h3 class="panel-title">Member List</h3></div>
 							<div class="panel-body">
-								
-									<form action="">
-										<div class="row">
-											<div class=""></div>
-											<div class="col-md-3">
-												<input type="text" id="fromDate" name="fromDate" value="<%=fromDate%>" class="form-control" placeholder="Form Date">
-											</div>
-											<div class="col-md-3">
-												<input type="text" id="toDate" name="toDate" value="<%=toDate%>" class="form-control" placeholder="To Date">
-											</div>
-<<<<<<< HEAD
-											<div class="col-md-6 form-inline">
-												<input type="text" class="form-control" placeholder="Search">
-=======
-											<div class="col-md-4 form-inline">
-												<input type="text" id="custID" name="custID" value="<%=custID%>" class="form-control" placeholder="Telephone">
->>>>>>> origin/master
-												<input class="btn btn-info" name="search" type="submit" value="Search" />
-											</div>
+								<form action="">
+									<div class="row">
+										<div class=""></div>
+										<div class="col-md-3">
+											<input type="text" id="fromDate" name="fromDate" value="<%=fromDate%>" class="form-control" placeholder="Form Date">
 										</div>
-									</form>
-
+										<div class="col-md-3">
+											<input type="text" id="toDate" name="toDate" value="<%=toDate%>" class="form-control" placeholder="To Date">
+										</div>
+										<div class="col-md-6 form-inline">
+											<input type="text" id="custID" name="custID" value="<%=custID%>" class="form-control" placeholder="Telephone">
+											<input class="btn btn-info" name="search" type="submit" value="Search" />
+										</div>
+									</div>
+								</form>
 								<div><br/></div>
 								<table class="table table-bordered table-hover table-striped">
 									<thead>
@@ -234,9 +212,8 @@
 							</div>
 						</div>
 					</div>
-				</div>
+			</div>
 		</div>
-		</html:form>
 		<script src="js/bootstrap.js"></script>
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<script src="js/jquery-ui.js"></script>
