@@ -38,7 +38,7 @@ public class CreateCustomerAction extends Action {
 		String custDate		= mainAgentFrom.getCustDate();
 		if(!custDate.equals("")) custDate	= dateUtil.CnvToYYYYMMDD(custDate, '-');
 		String period		= mainAgentFrom.getPeriod();
-		String custType		= mainAgentFrom.getCustType();
+		String money		= mainAgentFrom.getCustMoney();
 		
 		String search 		= mainAgentFrom.getSearch();
 		String save 		= mainAgentFrom.getSave();
@@ -52,8 +52,8 @@ public class CreateCustomerAction extends Action {
 			chkCustomer = createCustomerDB.getCheckMaster(custID, userName);
 			
 			if(chkCustomer==false){
-				createCustomerDB.AddCustomer(custID, custName, custAddr, custEmail, custDate, period, userName);
-				createCustomerDB.paymentCustomer(userName, custID, custName, custDate, Integer.parseInt(period));
+				createCustomerDB.AddCustomer(custID, custName, custAddr, custEmail, custDate, period, money, userName);
+				createCustomerDB.paymentCustomer(userName, custID, custName, custDate, Integer.parseInt(period), money);
 				massageAlert = "Save ข้อมูลเรียบร้อย !!!";
 			}else{
 				massageAlert = "มีข้อมูลลูกค้า ท่านนี้แล้ว !!!";
@@ -62,8 +62,8 @@ public class CreateCustomerAction extends Action {
 		}
 		if(update!=null){
 			CreateCustomerDB createCustomerDB = new CreateCustomerDB();
-			createCustomerDB.UpdateCustomer(custID, custName, custAddr, custEmail, custDate, period, userName);
-			createCustomerDB.paymentCustomer(userName, custID, custName, custDate, Integer.parseInt(period));
+			createCustomerDB.UpdateCustomer(custID, custName, custAddr, custEmail, custDate, period, money, userName);
+			createCustomerDB.paymentCustomer(userName, custID, custName, custDate, Integer.parseInt(period), money);
 		}
 		
 		request.setAttribute("massageAlert", massageAlert);

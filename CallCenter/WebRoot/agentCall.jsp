@@ -6,7 +6,7 @@
 <%@ page import ="javax.servlet.http.HttpSession.*"%>
 <%@ page import="com.callcenter.agent.form.MainAgentForm" %>
 <%
-	String fromDate = "", toDate = "", custID = "", name = "";
+	String fromDate = "", toDate = "", custID = "", name = "", name1 = "";
 	
 	if(request.getAttribute("fromDate")!=null){
 		fromDate = request.getAttribute("fromDate").toString();
@@ -46,6 +46,15 @@
 				border-radius: 50%;
 			}
 		</style>
+		<script language="javascript">
+		function getCustomer(tcustID, tcustName, tperiod, tcustMoney, tcustDate) {
+				document.mainAgentForm.tranID.value = tcustID;	 
+				document.mainAgentForm.tranName.value = tcustName;
+				document.mainAgentForm.tranPeriod.value = tperiod;
+				document.mainAgentForm.tranMoney.value = tcustMoney;
+				document.mainAgentForm.tranDate.value = tcustDate;				
+	}			
+		</script>
 	</head>
 	<body>
 		<div class="container-fuild">
@@ -69,12 +78,14 @@
 	        		</div><!-- /.nav-collapse -->
 	      		</div><!-- /.container -->
     		</nav>
+    		<html:form action="/agentCall" method="POST">
 			<div class="row">
 				<div class=""></div>
 				<div class="col-md-6">
 						<div class="panel panel-primary">
 							<div class="panel-heading"><h3 class="panel-title">Member Detail</h3></div>
 							<div class="panel-body">
+							
 								<table class="table table-bordered">
 									<thead>
 										<tr>
@@ -87,11 +98,11 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td> <input class="form-control" id="disabledInput" type="text" value="0993511516" disabled></td>
-											<td> <input class="form-control" id="disabledInput" type="text" value="วิไล เคียงประดู่" disabled></td>
-											<td> <input class="form-control" id="disabledInput" type="text" value="1" disabled></td>
-											<td> <input class="form-control" id="disabledInput" type="text" value="10,000 บาท" disabled></td>
-											<td> <input class="form-control" id="disabledInput" type="text" value="10-06-2015" disabled></td>
+											<td> <input type="text" class="form-control" id="tranID" name="tranID" ></td>
+											<td> <input type="text" class="form-control" id="tranName" name="tranName" ></td>
+											<td> <input type="text" class="form-control" id="tranPeriod" name="tranPeriod" ></td>
+											<td> <input type="text" class="form-control" id="tranMoney" name="tranMoney" ></td>
+											<td> <input type="text" class="form-control" id="tranDate" name="tranDate" ></td>
 											<!-- <td>0993511516</td>
 											<td>วิไล เคียงประดู่</td>
 											<td>1</td>
@@ -130,7 +141,7 @@
 											<option>ติดต่อได้</option>
 										</select>
 									</div>
-									<div class="col-md-3">
+									<div class="col-md-4">
 										<label>Select Pattern Message</label>
 										<select class="form-control">
 											<option>เลือก</option>
@@ -156,7 +167,6 @@
 									</div>
 								</div>
 								
-								
 							</div>
 						</div>
 					</div>
@@ -164,7 +174,6 @@
 						<div class="panel panel-primary">
 							<div class="panel-heading"><h3 class="panel-title">Member List</h3></div>
 							<div class="panel-body">
-								<html:form action="/agentCall" method="POST">
 									<div class="row">
 										<div class=""></div>
 										<div class="col-md-3">
@@ -178,7 +187,6 @@
 											<input class="btn btn-info" name="search" type="submit" value="Search" />
 										</div>
 									</div>
-								</html:form>
 								<div><br/></div>
 								<table class="table table-bordered table-hover table-striped">
 									<thead>
@@ -200,14 +208,16 @@
 							  			x++;
 							  			MainAgentForm custList = (MainAgentForm) iter.next();
 									%>
+									
 									<tr>
 										<td align="center"><%=x%></td>
-										<td><%=custList.getCustID()%></td>
+										<td><a href="javascript:getCustomer('<%=custList.getCustID()%>','<%=custList.getCustName()%>',
+										'<%=custList.getPeriod()%>','<%=custList.getCustMoney()%>','<%=custList.getCustDate()%>');"><%=custList.getCustID()%></a></td>
 										<td><%=custList.getCustName()%></td>
 										<td><%=custList.getCustType()%></td>
-										<td><%=custList.getPeriod()%></td>
+										<td><%=custList.getCustMoney()%></td>
 										<td><%=custList.getCustDate()%></td>
-									</tr>
+									</tr> 
 									<%		} 
 							 			} else {
 									%>
@@ -220,6 +230,7 @@
 						</div>
 					</div>
 			</div>
+			</html:form>
 		</div>
 		<script src="js/bootstrap.js"></script>
 		<script src="js/jquery-1.11.3.min.js"></script>

@@ -105,9 +105,15 @@
 						<div><br/></div>
 						<div class="row">
 							<div class="col-md-2" align="right">
+								<label>จำนวนเงินทั้งหมด</label>
+							</div>
+							<div class="col-md-3">
+								<input type="text" id="custMoney" name="custMoney" class="form-control" placeholder="Total Amount">
+							</div>
+							<div class="col-md-2" align="right">
 								<label>Email</label>
 							</div>
-							<div class="col-md-8">
+							<div class="col-md-3">
 								<input type="text" id="custEmail" name="custEmail" class="form-control" placeholder="exsample@email.com">
 							</div>
 						</div>

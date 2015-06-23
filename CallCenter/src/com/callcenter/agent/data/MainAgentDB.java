@@ -23,12 +23,12 @@ public class MainAgentDB {
 	public List GetCustomerList(String custDate, String fromDate, String toDate, String custID) 
 	throws Exception { //30-05-2014
 		List customerList = new ArrayList();
-		String custName = "", docDate = "", custType = "", period = "" ;
+		String custName = "", docDate = "", custType = "", period = "", money = "" ;
 		try {
 		
 			conn = agent.getConnectMYSql();
 			
-			String sqlStmt = "SELECT custid, custname, docdate, type, period " +
+			String sqlStmt = "SELECT custid, custname, docdate, type, period, money " +
 			"FROM payment_customer_list " +
 			"WHERE "; 
 			if(!custDate.equals("")) sqlStmt = sqlStmt+ "docdate between '"+custDate+"' AND date_add('"+custDate+"',INTERVAL 7 day) AND ";
@@ -36,7 +36,7 @@ public class MainAgentDB {
 			if(!toDate.equals("")) sqlStmt = sqlStmt+ "docdate <= '"+toDate+"' AND ";
 			if(!custID.equals("")) sqlStmt = sqlStmt+ "custid like '"+custID+"%' AND ";
 			
-			sqlStmt = sqlStmt + "custid <> '' group by custid, period order by custid, docdate";
+			sqlStmt = sqlStmt + "custid <> '' group by custid, period order by docdate asc, custid ";
 			
 			//System.out.println(sqlStmt);				
 			pStmt = conn.createStatement();
@@ -47,10 +47,11 @@ public class MainAgentDB {
 				if (rs.getString("docdate") != null) docDate = rs.getString("docdate"); else docDate = "";
 				if (rs.getString("type") != null) custType = rs.getString("type"); else custType = "";
 				if (rs.getString("period") != null) period = rs.getString("period"); else period = "";
+				if (rs.getString("money") != null) money = rs.getString("money"); else money = "";
 				
 				docDate = dateUtil.CnvToDDMMYYYY1(docDate);
 				
-				customerList.add(new MainAgentForm(custID, custName, docDate, custType, period));
+				customerList.add(new MainAgentForm(custID, custName, docDate, custType, period, money));
 			}
 			rs.close();
 			pStmt.close();

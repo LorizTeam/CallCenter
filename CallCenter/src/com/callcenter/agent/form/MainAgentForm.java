@@ -28,8 +28,18 @@ public class MainAgentForm extends ActionForm {
 	private String custEmail;
 	private String custDate;
 	private String custType;
+	private String custMoney;
+	
 	private String period;
 	private boolean isTrue;
+	
+	private String tranID;
+	private String tranName;
+	private String tranAddr;
+	private String tranEmail;
+	private String tranDate;
+	private String tranType;
+	private String tranMoney;
 	
 	private String save = null;
 	private String update = null;
@@ -38,13 +48,14 @@ public class MainAgentForm extends ActionForm {
 	private String createCustomer = null;
 	
 	public MainAgentForm(){};
-	public MainAgentForm (String custID, String custName, String custDate, String custType, String period){
+	public MainAgentForm (String custID, String custName, String custDate, String custType, String period, String custMoney){
 		super();
 		this.custID 	= custID;
 		this.custName	= custName;
 		this.custDate	= custDate;
 		this.custType	= custType;
 		this.period		= period;
+		this.custMoney	= custMoney;
 }
 	public void reset() {
 		this.fromDate = "";
@@ -150,6 +161,53 @@ public class MainAgentForm extends ActionForm {
 	public void setCreateCustomer(String createCustomer) {
 		this.createCustomer = createCustomer;
 	}
-	
+	public String getCustMoney() {
+		return custMoney;
+	}
+	public void setCustMoney(String custMoney) {
+		this.custMoney = custMoney;
+	}
+	public String getTranID() {
+		return tranID;
+	}
+	public void setTranID(String tranID) {
+		this.tranID = tranID;
+	}
+	public String getTranName() {
+		return tranName;
+	}
+	public void setTranName(String tranName) {
+		this.tranName = tranName;
+	}
+	public String getTranAddr() {
+		return tranAddr;
+	}
+	public void setTranAddr(String tranAddr) {
+		this.tranAddr = tranAddr;
+	}
+	public String getTranEmail() {
+		return tranEmail;
+	}
+	public void setTranEmail(String tranEmail) {
+		this.tranEmail = tranEmail;
+	}
+	public String getTranDate() {
+		return tranDate;
+	}
+	public void setTranDate(String tranDate) {
+		this.tranDate = tranDate;
+	}
+	public String getTranType() {
+		return tranType;
+	}
+	public void setTranType(String tranType) {
+		this.tranType = tranType;
+	}
+	public String getTranMoney() {
+		return tranMoney;
+	}
+	public void setTranMoney(String tranMoney) {
+		this.tranMoney = tranMoney;
+	}
 
 }

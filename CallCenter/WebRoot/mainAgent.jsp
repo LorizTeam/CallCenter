@@ -105,6 +105,7 @@
 										<th>Name</th>
 										<th>Level</th>
 										<th>Period</th>
+										<th>Money</th>
 										<th>Date</th>
 									</tr>
 								</thead>
@@ -116,14 +117,6 @@
 									for (Iterator iter = customerList.iterator(); iter.hasNext();) {
 							  			x++;
 							  			MainAgentForm custList = (MainAgentForm) iter.next();
-							  			
-							  			MainAgentForm sentForm  = new MainAgentForm();
-							  			sentForm.setCustID(custList.getCustID());
-							  			sentForm.setCustName(custList.getCustName());
-							  			sentForm.setCustType(custList.getCustType());
-							  			sentForm.setPeriod(custList.getPeriod());
-							  			sentForm.setCustDate(custList.getCustDate());
-							  			 sentList.add(sentForm);
 					
 									%>
 									<tr>
@@ -132,12 +125,10 @@
 										<td><%=custList.getCustName()%></td>
 										<td><%=custList.getCustType()%></td>
 										<td><%=custList.getPeriod()%></td>
+										<td><%=custList.getCustMoney()%></td>
 										<td><%=custList.getCustDate()%></td>
 									</tr>
 									<%		}
-									 
-									request.setAttribute("sentList", sentList); 
-									
 							 			} else {
 									%>
 									<tr><td align="center" colspan="4">No Data Found</td></tr>

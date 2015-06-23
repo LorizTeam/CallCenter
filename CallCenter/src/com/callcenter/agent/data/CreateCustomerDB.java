@@ -23,12 +23,12 @@ public class CreateCustomerDB {
 	public List GetCustomerList(String custDate, String fromDate, String toDate, String custID) 
 	throws Exception { //30-05-2014
 		List customerList = new ArrayList();
-		String custName = "", docDate = "", custType = "", period = "" ;
+		String custName = "", docDate = "", custType = "", period = "", money = "" ;
 		try {
 		
 			conn = agent.getConnectMYSql();
 			
-			String sqlStmt = "SELECT custid, custname, docdate, type, period " +
+			String sqlStmt = "SELECT custid, custname, docdate, type, period, money " +
 			"FROM payment_customer_list " +
 			"WHERE "; 
 			if(!custDate.equals("")) sqlStmt = sqlStmt+ "docdate between '"+custDate+"' AND date_add('"+custDate+"',INTERVAL 7 day) AND ";
@@ -47,10 +47,11 @@ public class CreateCustomerDB {
 				if (rs.getString("docdate") != null) docDate = rs.getString("docdate"); else docDate = "";
 				if (rs.getString("type") != null) custType = rs.getString("type"); else custType = "";
 				if (rs.getString("period") != null) period = rs.getString("period"); else period = "";
+				if (rs.getString("period") != null) money = rs.getString("money"); else money = "";
 				
 				docDate = dateUtil.CnvToDDMMYYYY1(docDate);
 				
-				customerList.add(new MainAgentForm(custID, custName, docDate, custType, period));
+				customerList.add(new MainAgentForm(custID, custName, docDate, custType, period, money));
 			}
 			rs.close();
 			pStmt.close();
@@ -61,22 +62,22 @@ public class CreateCustomerDB {
 		return customerList;
 	 }
 
-	public void AddCustomer(String custID, String custName, String custAddr, String custEmail, String custDate, String period, String userName)  throws Exception{
+	public void AddCustomer(String custID, String custName, String custAddr, String custEmail, String custDate, String period, String money, String userName)  throws Exception{
 		conn = agent.getConnectMYSql();
 		
-		String sqlStmt = "INSERT IGNORE INTO customer(custid, custname, custaddr, custemail, custdate, period, username) " +
-		"VALUES ('"+custID+"', '"+custName+"', '"+custAddr+"', '"+custEmail+"', '"+custDate+"', '"+period+"', '"+userName+"')";
+		String sqlStmt = "INSERT IGNORE INTO customer(custid, custname, custaddr, custemail, custdate, period, money, username) " +
+		"VALUES ('"+custID+"', '"+custName+"', '"+custAddr+"', '"+custEmail+"', '"+custDate+"', '"+period+"', '"+money+"', '"+userName+"')";
 		//System.out.println(sqlStmt);
 		pStmt = conn.createStatement();
 		pStmt.executeUpdate(sqlStmt);
 		pStmt.close();
 		conn.close();
 	}
-	public void UpdateCustomer(String custID, String custName, String custAddr, String custEmail, String custDate, String period, String userName)  throws Exception{
+	public void UpdateCustomer(String custID, String custName, String custAddr, String custEmail, String custDate, String period, String money, String userName)  throws Exception{
 		conn = agent.getConnectMYSql();
 		
 		String sqlStmt = "UPDATE customer set custname = '"+custName+"', custaddr = '"+custAddr+"', " +
-				"custemail = '"+custEmail+"', custdate = '"+custDate+"', period '"+period+"' " +
+				"custemail = '"+custEmail+"', custdate = '"+custDate+"', period '"+period+"', money '"+money+"' " +
 		"WHERE username = '"+userName+"' and custid = '"+custID+"'";
 		//System.out.println(sqlStmt);
 		pStmt = conn.createStatement();
@@ -92,11 +93,11 @@ public class CreateCustomerDB {
 
 		conn.close();
 	}
-	public void paymentCustomer(String userName, String custID, String custName, String custDate, int period) throws Exception {
-		String   DateUse = "";
+	public void paymentCustomer(String userName, String custID, String custName, String custDate, int period, String money) throws Exception {
+		String   DateUse = ""; float moneyBath = 0f; 
 	
 		conn = agent.getConnectMYSql();
-			
+		moneyBath = (Float.parseFloat(money)/period);
 		for(int i=1,j=0; i<=period; i++,j++){
 			
 			String sqlStmt = "SELECT DATE_ADD('"+custDate+"',INTERVAL "+j+" MONTH) as perioddate FROM customer WHERE username = '"+userName+"' and custid = '"+custID+"' ";
@@ -107,8 +108,8 @@ public class CreateCustomerDB {
 				DateUse 		= rs.getString("perioddate");
 			}
 			
-			sqlStmt = "INSERT IGNORE INTO payment_customer_list(custid, custname, docdate, type, period, username) " +
-			"VALUES ('"+custID+"', '"+custName+"', '"+DateUse+"', '1', "+i+", '"+userName+"')";
+			sqlStmt = "INSERT IGNORE INTO payment_customer_list(custid, custname, docdate, type, period, money, username) " +
+			"VALUES ('"+custID+"', '"+custName+"', '"+DateUse+"', '1', "+i+", "+moneyBath+", '"+userName+"')";
 			//System.out.println(sqlStmt);
 			pStmt = conn.createStatement();
 			pStmt.executeUpdate(sqlStmt);
