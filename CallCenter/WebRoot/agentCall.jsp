@@ -75,7 +75,7 @@
 						<div class="panel panel-primary">
 							<div class="panel-heading"><h3 class="panel-title">Member Detail</h3></div>
 							<div class="panel-body">
-								<table class="table table-bordered table-hover table-striped">
+								<table class="table table-bordered">
 									<thead>
 										<tr>
 											<th>Phone Number</th>
@@ -87,11 +87,16 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td>0993511516</td>
+											<td> <input class="form-control" id="disabledInput" type="text" value="0993511516" disabled></td>
+											<td> <input class="form-control" id="disabledInput" type="text" value="วิไล เคียงประดู่" disabled></td>
+											<td> <input class="form-control" id="disabledInput" type="text" value="1" disabled></td>
+											<td> <input class="form-control" id="disabledInput" type="text" value="10,000 บาท" disabled></td>
+											<td> <input class="form-control" id="disabledInput" type="text" value="10-06-2015" disabled></td>
+											<!-- <td>0993511516</td>
 											<td>วิไล เคียงประดู่</td>
 											<td>1</td>
 											<td>10,000 บาท</td>
-											<td>10-06-2015</td>
+											<td>10-06-2015</td> -->
 										</tr>
 									</tbody>
 								</table>
@@ -162,10 +167,10 @@
 								<html:form action="/agentCall" method="POST">
 									<div class="row">
 										<div class=""></div>
-										<div class="col-md-2">
+										<div class="col-md-3">
 											<input type="text" id="fromDate" name="fromDate" value="<%=fromDate%>" class="form-control" placeholder="Form Date">
 										</div>
-										<div class="col-md-2">
+										<div class="col-md-3">
 											<input type="text" id="toDate" name="toDate" value="<%=toDate%>" class="form-control" placeholder="To Date">
 										</div>
 										<div class="col-md-6 form-inline">
