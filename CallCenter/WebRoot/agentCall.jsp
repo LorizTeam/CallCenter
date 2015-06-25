@@ -63,7 +63,11 @@
 	
 	if(alertMassage.value != ""){ 
 	 
+<<<<<<< HEAD
 	var myWindow = window.open("https://192.168.1.250/abc/call.php?number="+telNo+"&activityid=98865", "myWindow", "width=200, height=100")
+=======
+	var myWindow = window.open("https://192.168.1.250/abc/call.php?number="+telNo+"&activityid=13336", "myWindow", "width=200, height=100")
+>>>>>>> ac2155588bee892d05ac4bc20f01cacd0b32a24a
  	setTimeout (function() {myWindow.close();}, 500);
  	
  	}else{
