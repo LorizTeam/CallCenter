@@ -67,7 +67,7 @@
  	setTimeout (function() {myWindow.close();}, 500);
  	
  	}else{
- 	
+  
  	alert("โปรดระบุ หมายเลขโทรศัพท์ ก่อนทำการโทร"); 
  	
  	}
