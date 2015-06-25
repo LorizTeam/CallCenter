@@ -58,21 +58,21 @@
 				document.mainAgentForm.tranDate.value = tcustDate;				
 	}			
 	function tel(){
-	var alertMassage1 = document.getElementById("tranID").checked;
-	var telNo = document.getElementById("tranID").value;
-	if(alertMassage1!=false){
+	var alertMassage = document.getElementById('tranID');
+	var telNo = 9+document.getElementById("tranID").value;
 	
-	var myWindow = window.open("https://192.168.1.250/abc/call.php?number="+telNo+"&activityid=12311", "myWindow", "width=200, height=100")
- 
- 	myWindow = window.close();
- 	setTimeout (function() {myWindow.close();},500);
+	if(alertMassage.value != ""){ 
+	 
+	var myWindow = window.open("https://192.168.1.250/abc/call.php?number="+telNo+"&activityid=12333", "myWindow", "width=200, height=100")
+ 	setTimeout (function() {myWindow.close();}, 500);
  	
  	}else{
  	
- 	alert("โปรดระบุ หมายเลขโทรศัพท์ ก่อนทำการโทร");
+ 	alert("โปรดระบุ หมายเลขโทรศัพท์ ก่อนทำการโทร"); 
  	
  	}
-}
+ }
+
 		</script>
 	</head>
 	<body>
