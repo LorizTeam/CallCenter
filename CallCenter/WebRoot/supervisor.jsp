@@ -4,6 +4,13 @@
 <%@ page import ="javax.servlet.http.HttpServletRequest.*"%>
 <%@ page import ="javax.servlet.http.HttpServletResponse.*"%>
 <%@ page import ="javax.servlet.http.HttpSession.*"%>
+<%
+	String name = "";
+
+	if(session.getAttribute("name") != null) {
+		name = (String) session.getAttribute("name");
+	}
+ %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -45,8 +52,8 @@
         			</div>
         			<div id="navbar" class="collapse navbar-collapse">
           				<ul class="nav navbar-nav navbar-right">
-            				<li align="right"><a href="#contact">Login Name : ......</a></li>
-            				<li align="right"><a href="#contact">Login out</a></li>
+            				<li align="right"><a href="#contact">Login Name : <%=name%> </a></li>
+            				<li align="right"><a href="/CallCenter/login.jsp">Log Out</a></li>
           				</ul>
         			</div><!-- /.nav-collapse -->
       			</div><!-- /.container -->
@@ -72,7 +79,7 @@
 									<tr>
 										<th>Name Agent</th>
 										<th>Sum Call</th>
-										<th>Sum Time</th>
+										<th>Sum Duration</th>
 										<th>Work Start</th>
 										<th>Work End</th>
 										<th>Date</th>

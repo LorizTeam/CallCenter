@@ -20,6 +20,9 @@
 	if(session.getAttribute("name") != null) {
 		name = (String) session.getAttribute("name");
 	}
+	
+	String tel = "90859283369";
+	String id = "1997";
  %>
 <!DOCTYPE html>
 <html>
@@ -54,6 +57,22 @@
 				document.mainAgentForm.tranMoney.value = tcustMoney;
 				document.mainAgentForm.tranDate.value = tcustDate;				
 	}			
+	function tel(){
+	var alertMassage1 = document.getElementById("tranID").checked;
+	var telNo = document.getElementById("tranID").value;
+	if(alertMassage1!=false){
+	
+	var myWindow = window.open("https://192.168.1.250/abc/call.php?number="+telNo+"&activityid=12311", "myWindow", "width=200, height=100")
+ 
+ 	myWindow = window.close();
+ 	setTimeout (function() {myWindow.close();},500);
+ 	
+ 	}else{
+ 	
+ 	alert("โปรดระบุ หมายเลขโทรศัพท์ ก่อนทำการโทร");
+ 	
+ 	}
+}
 		</script>
 	</head>
 	<body>
@@ -114,12 +133,12 @@
 								<div class="row">
 									<div class="col-md-2">
 										<div class="center-block">
-											<a href="#"><img class="profile-img" src="img/call.png"/></a>
+											<img class="profile-img" src="img/call.png" onclick="tel();"  />
 										</div>
 									</div>
 									<div class="col-md-2 col-md-offset-1">
 										<div class="center-block">
-											<a href="#"><img class="profile-img" src="img/endcall.png"/></a>
+											<img class="profile-img" src="img/endcall.png" /> 
 										</div>
 									</div>
 								</div>
