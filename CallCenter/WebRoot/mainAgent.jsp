@@ -121,7 +121,7 @@
 									%>
 									<tr>
 										<td align="center"><%=x%> </td>
-										<td><%=custList.getCustID()%></td>
+										<td><a href="http://localhost:8080/CallCenter/customerHistory.jsp"><%=custList.getCustID()%></a></td>
 										<td><%=custList.getCustName()%></td>
 										<td><%=custList.getCustType()%></td>
 										<td><%=custList.getPeriod()%></td>
@@ -131,7 +131,7 @@
 									<%		}
 							 			} else {
 									%>
-									<tr><td align="center" colspan="4">No Data Found</td></tr>
+									<tr><td align="center" colspan="7">No Data Found</td></tr>
 									<%	} %>
 								</tbody>
 							</table>
