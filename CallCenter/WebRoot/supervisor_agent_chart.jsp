@@ -59,31 +59,11 @@
 					<div class="container">
 					<div><br/></div>
 					<div class="row">
-						<div class="col-md-10 col-md-offset-1">
-							<table class="table table-bordered table-hover table-striped">
-								<thead>
-									<tr>
-										<th>Name Agent</th>
-										<th>Sum Call</th>
-										<th>Sum Time</th>
-										<th>Work Start</th>
-										<th>Work End</th>
-										<th>Date</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>นายทรงพล  อาริยวัฒน์</td>
-										<td>6</td>
-										<td>67 Minute</td>
-										<td>9.00 น.</td>
-										<td>18.00 น.</td>
-										<td>10-06-2015</td>
-									</tr>
-								</tbody>
-							</table>
+						<div id="canvas-holder">
+							<center><canvas id="chart-area" width="300" height="300"/></center>
 						</div>
 					</div>
+					<div><br/></div>
 					<div class="panel panel-primary">
 						<div class="panel-heading">
 							<h3 class="panel-title">Detail Agent Call</h3>
@@ -132,11 +112,6 @@
 							</table>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-2 col-md-offset-10">
-							<a href="" class="btn btn-info">Chart</a>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -144,6 +119,58 @@
 		<script src="js/bootstrap.js"></script>
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<script src="js/jquery-ui.js"></script>
+		<script src="js/Chart.js"></script>
+		<script>
+		var pieData = [
+				{
+					value: 40,
+					color:"#F7464A",
+					highlight: "#FF5A5E",
+					label: "โทรสำเร็จ"
+				},
+				{
+					value: 10,
+					color: "#46BFBD",
+					highlight: "#5AD3D1",
+					label: "โทรไม่สำเร็จ"
+				},
+				{
+					value: 20,
+					color: "#FDB45C",
+					highlight: "#FFC870",
+					label: "ลูกค้ายอมจ่ายเงิน"
+				},
+				{
+					value: 10,
+					color: "#949FB1",
+					highlight: "#A8B3C5",
+					label: "ลูกค้ายังไม่สามารถผ่อนได้"
+				},
+				{
+					value: 10,
+					color: "#00CC00",
+					highlight: "#A8B3C5",
+					label: "Level 1"
+				},
+				{
+					value: 5,
+					color: "#FFFF00",
+					highlight: "#A8B3C5",
+					label: "Level 2"
+				},
+				{
+					value: 2,
+					color: "#F00000",
+					highlight: "#A8B3C5",
+					label: "Level 3"
+				}
 
+			];
+
+			window.onload = function(){
+				var ctx = document.getElementById("chart-area").getContext("2d");
+				window.myPie = new Chart(ctx).Pie(pieData);
+			};
+		</script>
 	</body>
 </html>

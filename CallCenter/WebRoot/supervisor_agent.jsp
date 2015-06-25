@@ -22,7 +22,7 @@
 		
 		<style>
 			body{
-				padding-top:50px;
+				padding-top:52px;
 				background-color:#f5f5f5;
 			}
 			
@@ -66,8 +66,17 @@
 					<div class="container">
 					<div><br/></div>
 					<div class="row">
-						<div class="col-md-10 col-md-offset-1">
-							<table class="table table-bordered table-hover table-striped">
+						<div class="col-md-2 col-md-offset-11">
+							<a href="" class="btn btn-info">Chart</a>
+						</div>
+					</div>
+					<div><br/></div>
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">Agent</h3>
+						</div>
+						<div class="panel-body">
+							<table class="table table-bordered">
 								<thead>
 									<tr>
 										<th>Name Agent</th>
@@ -104,6 +113,7 @@
 										<th>Level</th>
 										<th>Count Call</th>
 										<th>Date</th>
+										<th>Sound</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -113,6 +123,7 @@
 										<td>2</td>
 										<td>3</td>
 										<td>10-06-2015</td>
+										<td>Void.mp3</td>
 									</tr>
 									<tr>
 										<td>ภาณุวัฒน์ ไทยวัฒนานนท์</td>
@@ -120,6 +131,7 @@
 										<td>2</td>
 										<td>3</td>
 										<td>10-06-2015</td>
+										<td>Void.mp3</td>
 									</tr>
 									<tr>
 										<td>พงศ์นรินทร์ อุลิศ</td>
@@ -127,6 +139,7 @@
 										<td>2</td>
 										<td>3</td>
 										<td>10-06-2015</td>
+										<td>Void.mp3</td>
 									</tr>
 									<tr>
 										<td>สุรชัย แก้วพิชัย</td>
@@ -134,14 +147,10 @@
 										<td>2</td>
 										<td>3</td>
 										<td>10-06-2015</td>
+										<td>Void.mp3</td>
 									</tr>
 								</tbody>
 							</table>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-2 col-md-offset-10">
-							<a href="" class="btn btn-info">Chart</a>
 						</div>
 					</div>
 				</div>
@@ -151,6 +160,5 @@
 		<script src="js/bootstrap.js"></script>
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<script src="js/jquery-ui.js"></script>
-
 	</body>
 </html>

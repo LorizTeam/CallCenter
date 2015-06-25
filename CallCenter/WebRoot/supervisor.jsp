@@ -22,7 +22,7 @@
 		
 		<style>
 			body{
-				padding-top:50px;
+				padding-top:52px;
 				background-color:#f5f5f5;
 			}
 			
@@ -38,7 +38,7 @@
 		</style>
 	</head>
 	<body>
-		<div class="container-fuild">
+		<div class="container">
 			<nav class="navbar navbar-fixed-top navbar-inverse">
       			<div class="container">
         			<div class="navbar-header">
