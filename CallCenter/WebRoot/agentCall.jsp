@@ -59,7 +59,7 @@
 	<body>
 		<div class="container-fuild">
 			<nav class="navbar navbar-fixed-top navbar-inverse">
-	      		<div class="container">
+	      		<div class="container-fuild">
 	        		<div class="navbar-header">
 	          			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 	            			<span class="sr-only">Toggle navigation</span>
@@ -151,6 +151,43 @@
 											<option>บริษัท INDEX</option>
 										</select>
 									</div>
+									<div class="col-md-3">
+										<label>Create Pattern Message</label>
+										<button type="button" class="btn btn-info" data-toggle="modal" data-target="callModal">Create Pattern Message</button>
+									</div>
+									<!--  -->
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Open modal for @fat</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>
+...more buttons...
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+									<!--  -->
 								</div>
 								<div><br/></div>
 								<div class="row">
@@ -235,6 +272,7 @@
 		<script src="js/bootstrap.js"></script>
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<script src="js/jquery-ui.js"></script>
+		<script src="js/modal.js"></script>
 		<script>
 		  $(function() {
 		    $( "#fromDate" ).datepicker({ dateFormat: 'dd/mm/yy' });
