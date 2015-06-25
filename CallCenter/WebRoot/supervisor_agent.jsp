@@ -67,7 +67,7 @@
 					<div><br/></div>
 					<div class="row">
 						<div class="col-md-2 col-md-offset-11">
-							<a href="" class="btn btn-info">Chart</a>
+							<a href="supervisor_agent_chart.jsp" class="btn btn-info">Chart</a>
 						</div>
 					</div>
 					<div><br/></div>
@@ -80,11 +80,11 @@
 								<thead>
 									<tr>
 										<th>Name Agent</th>
-										<th>Sum Call</th>
-										<th>Sum Duration</th>
+										<th>Total Call</th>
+										<th>Total Duration</th>
 										<th>Work Start</th>
 										<th>Work End</th>
-										<th>Date</th>
+										<th>Date Time</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -94,7 +94,7 @@
 										<td>67 Minute</td>
 										<td>9.00 น.</td>
 										<td>18.00 น.</td>
-										<td>10-06-2015</td>
+										<td>10-06-2015 10:30:00</td>
 									</tr>
 								</tbody>
 							</table>
@@ -112,7 +112,7 @@
 										<th>Call Time</th>
 										<th>Level</th>
 										<th>Count Call</th>
-										<th>Date</th>
+										<th>Date Time</th>
 										<th>Sound</th>
 									</tr>
 								</thead>
@@ -122,7 +122,7 @@
 										<td>17 Minute</td>
 										<td>2</td>
 										<td>3</td>
-										<td>10-06-2015</td>
+										<td>10-06-2015 10:30:00</td>
 										<td>Void.mp3</td>
 									</tr>
 									<tr>
@@ -130,7 +130,7 @@
 										<td>15 Minute</td>
 										<td>2</td>
 										<td>3</td>
-										<td>10-06-2015</td>
+										<td>10-06-2015 10:40:00</td>
 										<td>Void.mp3</td>
 									</tr>
 									<tr>
@@ -138,7 +138,7 @@
 										<td>16 Minute</td>
 										<td>2</td>
 										<td>3</td>
-										<td>10-06-2015</td>
+										<td>10-06-2015 10:50:00</td>
 										<td>Void.mp3</td>
 									</tr>
 									<tr>
@@ -146,7 +146,7 @@
 										<td>18 Minute</td>
 										<td>2</td>
 										<td>3</td>
-										<td>10-06-2015</td>
+										<td>10-06-2015 13:30:00</td>
 										<td>Void.mp3</td>
 									</tr>
 								</tbody>

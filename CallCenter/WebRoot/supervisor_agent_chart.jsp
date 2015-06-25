@@ -76,7 +76,7 @@
 										<th>Call Time</th>
 										<th>Level</th>
 										<th>Count Call</th>
-										<th>Date</th>
+										<th>Date Time</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -85,28 +85,28 @@
 										<td>17 Minute</td>
 										<td>2</td>
 										<td>3</td>
-										<td>10-06-2015</td>
+										<td>10-06-2015 10:30:00</td>
 									</tr>
 									<tr>
 										<td>ภาณุวัฒน์ ไทยวัฒนานนท์</td>
 										<td>15 Minute</td>
 										<td>2</td>
 										<td>3</td>
-										<td>10-06-2015</td>
+										<td>10-06-2015 10:40:00</td>
 									</tr>
 									<tr>
 										<td>พงศ์นรินทร์ อุลิศ</td>
 										<td>16 Minute</td>
 										<td>2</td>
 										<td>3</td>
-										<td>10-06-2015</td>
+										<td>10-06-2015 10:50:00</td>
 									</tr>
 									<tr>
 										<td>สุรชัย แก้วพิชัย</td>
 										<td>18 Minute</td>
 										<td>2</td>
 										<td>3</td>
-										<td>10-06-2015</td>
+										<td>10-06-2015 13:30:00</td>
 									</tr>
 								</tbody>
 							</table>

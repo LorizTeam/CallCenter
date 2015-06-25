@@ -51,14 +51,182 @@
       		</div><!-- /.container -->
     	</nav>
 		<div class="container">
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<h3 class="panel-title">Supervisor Call</h3>
+			<div class="row">
+				<div class="col-md-9">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">Whisper</h3>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-2">
+									<div class="center-block">
+										<img class="profile-img" src="img/call.png"/>
+										<center><label>Whisper Call</label></center>
+									</div>
+								</div>
+								<div class="col-md-2 col-md-offset-1">
+									<div class="center-block">
+										<img class="profile-img" src="img/endcall.png"/>
+										<center><label>Whisper END</label></center>
+									</div>
+								</div>
+								<!--  -->
+								<div class="col-md-7">
+									<div class="panel panel-info">
+										<div class="panel-heading">
+											<h3 class="panel-title">Agent Call</h3>
+										</div>
+									<div class="panel-body">
+									<table class="table table-bordered">
+										<thead>
+											<tr>
+												<th>Name Agent</th>
+												<th>Calling</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>นายทรงพล  อาริยวัฒน์</td>
+												<td>O</td>
+											</tr>
+											<tr>
+												<td>นายทรงพล  อาริยวัฒน์</td>
+												<td>O</td>
+											</tr>
+											<tr>
+												<td>นายทรงพล  อาริยวัฒน์</td>
+												<td>O</td>
+											</tr>
+											<tr>
+												<td>นายทรงพล  อาริยวัฒน์</td>
+												<td>O</td>
+											</tr>
+											<tr>
+												<td>นายทรงพล  อาริยวัฒน์</td>
+												<td>O</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+								<!--  -->
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="panel-body">
-					<div class="container">
-						<div class="row">
-							<div class=""></div>
+				<div class="col-md-3">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">Agent Online</h3>
+						</div>
+						<div class="panel-body">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>Name Agent</th>
+										<th>on</th>
+										<th>off</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>นายทรงพล  อาริยวัฒน์</td>
+										<td>O</td>
+										<td>O</td>
+									</tr>
+									<tr>
+										<td>นายทรงพล  อาริยวัฒน์</td>
+										<td>O</td>
+										<td>O</td>
+									</tr>
+									<tr>
+										<td>นายทรงพล  อาริยวัฒน์</td>
+										<td>O</td>
+										<td>O</td>
+									</tr>
+									<tr>
+										<td>นายทรงพล  อาริยวัฒน์</td>
+										<td>O</td>
+										<td>O</td>
+									</tr>
+									<tr>
+										<td>นายทรงพล  อาริยวัฒน์</td>
+										<td>O</td>
+										<td>O</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-9">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">Listening</h3>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-2">
+									<div class="center-block">
+										<img class="profile-img" src="img/call.png"/>
+										<center><label>Listening Call</label></center>
+									</div>
+								</div>
+								<div class="col-md-2 col-md-offset-1">
+									<div class="center-block">
+										<img class="profile-img" src="img/endcall.png"/>
+										<center><label>Listening END</label></center>
+									</div>
+								</div>
+								<!--  -->
+								<div class="col-md-7">
+									<div class="panel panel-info">
+										<div class="panel-heading">
+											<h3 class="panel-title">Agent Call</h3>
+										</div>
+									<div class="panel-body">
+									<table class="table table-bordered">
+										<thead>
+											<tr>
+												<th>Name Agent</th>
+												<th>Calling</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>นายทรงพล  อาริยวัฒน์</td>
+												<td>O</td>
+											</tr>
+											<tr>
+												<td>นายทรงพล  อาริยวัฒน์</td>
+												<td>O</td>
+											</tr>
+											<tr>
+												<td>นายทรงพล  อาริยวัฒน์</td>
+												<td>O</td>
+											</tr>
+											<tr>
+												<td>นายทรงพล  อาริยวัฒน์</td>
+												<td>O</td>
+											</tr>
+											<tr>
+												<td>นายทรงพล  อาริยวัฒน์</td>
+												<td>O</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+								<!--  -->
+							</div>
+							<div>
+								
+							</div>
 						</div>
 					</div>
 				</div>

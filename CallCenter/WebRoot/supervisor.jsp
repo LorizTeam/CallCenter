@@ -70,6 +70,9 @@
 							<input type="text" class="form-control" placeholder="Name Agent">
 							<a href="#" class="btn btn-info"><span class="glyphicon glyphicon-search"></span> Search</a>
 						</div>
+						<div class="col-md-2 col-md-offset-4">
+							<a href="supervisor_app.jsp" class="btn btn-info">Whisper Call</a>
+						</div>
 					</div>
 					<div><br/></div>
 					<div class="row">
@@ -78,11 +81,11 @@
 								<thead>
 									<tr>
 										<th>Name Agent</th>
-										<th>Sum Call</th>
-										<th>Sum Duration</th>
+										<th>Total Call</th>
+										<th>Total Duration</th>
 										<th>Work Start</th>
 										<th>Work End</th>
-										<th>Date</th>
+										<th>Date Time</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -92,7 +95,7 @@
 										<td>67 Minute</td>
 										<td>9.00 น.</td>
 										<td>18.00 น.</td>
-										<td>10-06-2015</td>
+										<td>10-06-2015 10:20:00</td>
 									</tr>
 									<tr>
 										<td><a href="supervisor_agent.jsp">นายสมบูรณ์  เอื้ออัชฌาสัย</a></td>
@@ -100,7 +103,7 @@
 										<td>88 Minute</td>
 										<td>9.00 น.</td>
 										<td>18.00 น.</td>
-										<td>10-06-2015</td>
+										<td>10-06-2015 10:30:00</td>
 									</tr>
 									<tr>
 										<td><a href="supervisor_agent.jsp">นายชูศักดิ์  เกียรติเฉลิมคุณ</a></td>
@@ -108,7 +111,7 @@
 										<td>55 Minute</td>
 										<td>9.00 น.</td>
 										<td>18.00 น.</td>
-										<td>10-06-2015</td>
+										<td>10-06-2015 10:40:00</td>
 									</tr>
 									<tr>
 										<td><a href="supervisor_agent.jsp">นายดำรงค์  ปคุณวานิช</a></td>
@@ -116,7 +119,7 @@
 										<td>35 Minute</td>
 										<td>9.00 น.</td>
 										<td>18.00 น.</td>
-										<td>10-06-2015</td>
+										<td>10-06-2015 10:50:00</td>
 									</tr>
 									<tr>
 										<td><a href="supervisor_agent.jsp">นายนุปกรณ์  หาญภูวดล</a></td>
@@ -124,7 +127,7 @@
 										<td>10 Minute</td>
 										<td>9.00 น.</td>
 										<td>18.00 น.</td>
-										<td>10-06-2015</td>
+										<td>10-06-2015 10:55:00</td>
 									</tr>
 									<tr>
 										<td><a href="supervisor_agent.jsp">นายสมหวัง  จตุรงค์ล้ำเลิศ</a></td>
@@ -132,7 +135,7 @@
 										<td>15 Minute</td>
 										<td>9.00 น.</td>
 										<td>18.00 น.</td>
-										<td>10-06-2015</td>
+										<td>10-06-2015 11:10:00</td>
 									</tr>
 									<tr>
 										<td><a href="supervisor_agent.jsp">นางสุมาลี  ดลสุขวงศาวัฒน์</a></td>
@@ -140,7 +143,7 @@
 										<td>55 Minute</td>
 										<td>9.00 น.</td>
 										<td>18.00 น.</td>
-										<td>10-06-2015</td>
+										<td>10-06-2015 11:20:00</td>
 									</tr>
 									<tr>
 										<td><a href="supervisor_agent.jsp">นางสาวอรมนัส  อยู่บุญสอ</a></td>
@@ -148,7 +151,7 @@
 										<td>10 Minute</td>
 										<td>9.00 น.</td>
 										<td>18.00 น.</td>
-										<td>10-06-2015</td>
+										<td>10-06-2015 11:30:00</td>
 									</tr>
 									<tr>
 										<td><a href="supervisor_agent.jsp">นางสาวสมใจ  หาญเรืองเกียรติ</a></td>
@@ -156,7 +159,7 @@
 										<td>100 Minute</td>
 										<td>9.00 น.</td>
 										<td>18.00 น.</td>
-										<td>10-06-2015</td>
+										<td>10-06-2015 11:40:00</td>
 									</tr>
 									<tr>
 										<td><a href="supervisor_agent.jsp">นายธันยกร  หลีสันติพงศ์</a></td>
@@ -164,7 +167,7 @@
 										<td>60 Minute</td>
 										<td>9.00 น.</td>
 										<td>18.00 น.</td>
-										<td>10-06-2015</td>
+										<td>10-06-2015 11:20:00</td>
 									</tr>
 									<tr>
 										<td><a href="supervisor_agent.jsp">นางสาวประภาศรี  ทองกิ่งแก้ว</a></td>
@@ -172,7 +175,7 @@
 										<td>90 Minute</td>
 										<td>9.00 น.</td>
 										<td>18.00 น.</td>
-										<td>10-06-2015</td>
+										<td>10-06-2015 10:20:00</td>
 									</tr>
 									<tr>
 										<td><a href="supervisor_agent.jsp">นางสาววันเพ็ญ  แซ่เอีย</a></td>
@@ -180,7 +183,7 @@
 										<td>70 Minute</td>
 										<td>9.00 น.</td>
 										<td>18.00 น.</td>
-										<td>10-06-2015</td>
+										<td>10-06-2015 10:20:00</td>
 									</tr>
 									<tr>
 										<td><a href="supervisor_agent.jsp">นายสมพงษ์  สายธารพรม</a></td>
@@ -188,7 +191,7 @@
 										<td>120 Minute</td>
 										<td>9.00 น.</td>
 										<td>18.00 น.</td>
-										<td>10-06-2015</td>
+										<td>10-06-2015 10:20:00</td>
 									</tr>
 									<tr>
 										<td><a href="supervisor_agent.jsp">นางสาวสุดจิตร  ลาภเลิศสุข</a></td>
@@ -196,7 +199,7 @@
 										<td>25 Minute</td>
 										<td>9.00 น.</td>
 										<td>18.00 น.</td>
-										<td>10-06-2015</td>
+										<td>10-06-2015 10:20:00</td>
 									</tr>
 									<tr>
 										<td><a href="supervisor_agent.jsp">นางวลัยพร  ติ้วเจริญสกุล</a></td>
@@ -204,7 +207,7 @@
 										<td>60 Minute</td>
 										<td>9.00 น.</td>
 										<td>18.00 น.</td>
-										<td>10-06-2015</td>
+										<td>10-06-2015 10:20:00</td>
 									</tr>
 									<tr>
 										<td><a href="supervisor_agent.jsp">นางพรศรี  สุตเธียรกุล</a></td>
@@ -212,7 +215,7 @@
 										<td>30 Minute</td>
 										<td>9.00 น.</td>
 										<td>18.00 น.</td>
-										<td>10-06-2015</td>
+										<td>10-06-2015 10:20:00</td>
 									</tr>
 									<tr>
 										<td><a href="supervisor_agent.jsp">นางสาวสุดารัตน์  เกื้อทวีกุล</a></td>
@@ -220,7 +223,7 @@
 										<td>45 Minute</td>
 										<td>9.00 น.</td>
 										<td>18.00 น.</td>
-										<td>10-06-2015</td>
+										<td>10-06-2015 10:20:00</td>
 									</tr>
 								</tbody>
 							</table>
