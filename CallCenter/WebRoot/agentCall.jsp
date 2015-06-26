@@ -66,7 +66,7 @@
 	if(alertMassage.value != ""){ 
 	var myWindow = window.open("https://192.168.1.250/abc/call1.php?number="+telNo+"&username="+userName+" ", "myWindow", "width=200, height=100")
 
- 	setTimeout (function() {myWindow.close();}, 500);
+ 	setTimeout (function() {myWindow.close();}, 30000);
  	
  	}else{
   
