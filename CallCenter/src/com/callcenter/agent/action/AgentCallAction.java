@@ -26,7 +26,7 @@ public class AgentCallAction extends Action {
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String userName = "";
 		HttpSession session = request.getSession();
-		userName = (String) session.getAttribute("name");
+		userName = (String) session.getAttribute("userName");
 		 
 		String forwardText = null;
 	
@@ -49,7 +49,7 @@ public class AgentCallAction extends Action {
 		
 		
 		MainAgentDB mainAgentDB = new MainAgentDB();
-		List customerList = mainAgentDB.GetCustomerList("", fromDate, toDate, custID);
+		List customerList = mainAgentDB.GetCustomerList("", fromDate, toDate, custID, userName);
 		request.setAttribute("customerList", customerList);
 		
 		forwardText = "search";
@@ -61,7 +61,7 @@ public class AgentCallAction extends Action {
 		date = dateUtil.CnvToYYYYMMDD(dateUtil.curDate(), '-');	
 			
 		MainAgentDB mainAgentDB = new MainAgentDB();
-		List customerList = mainAgentDB.GetCustomerList(date, "", "", "");
+		List customerList = mainAgentDB.GetCustomerList(date, "", "", "", userName);
 		request.setAttribute("customerList", customerList);	
 		
 		forwardText = "search";
