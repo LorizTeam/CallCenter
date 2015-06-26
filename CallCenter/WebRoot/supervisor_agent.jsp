@@ -48,6 +48,7 @@
             				<span class="icon-bar"></span>
             				<span class="icon-bar"></span>
           				</button>
+          				<a class="navbar-brand" href="mainAgent.jsp"><img src="img/logo.png" height="27" width="50"/></a>
           				<a class="navbar-brand" href="#">Call Center</a>
         			</div>
         			<div id="navbar" class="collapse navbar-collapse">
