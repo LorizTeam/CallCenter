@@ -146,15 +146,13 @@
 									</div>
 									<div class="col-md-2 ">
 										<div class="center-block">
-											<img class="profile-img" src="img/endcall.png" />
+											<img class="profile-img" src="img/endcall.png" onclick="endTel();" />
 											<center><label>Customer End</label></center>
 										</div>
 									</div>
 									<div class="col-md-2 col-md-offset-1">
 										<div class="center-block">
-<<<<<<< HEAD
-											<img class="profile-img" src="img/endcall.png" onclick="endTel();" /> 
-=======
+										
 											<img class="profile-img" src="img/call.png"  />
 											<center><label>Whisper Call</label></center>
 										</div>
@@ -163,7 +161,7 @@
 										<div class="center-block">
 											<img class="profile-img" src="img/endcall.png" />
 											<center><label>Whisper End</label></center>
->>>>>>> origin/master
+
 										</div>
 									</div>
 									<div class="col-md-3 ">
