@@ -20,7 +20,7 @@ public class MainAgentDB {
 	ResultSet rs		= null;
 	DateUtil dateUtil = new DateUtil();
 	
-	public List GetCustomerList(String custDate, String fromDate, String toDate, String custID) 
+	public List GetCustomerList(String custDate, String fromDate, String toDate, String custID, String userName) 
 	throws Exception { //30-05-2014
 		List customerList = new ArrayList();
 		String custName = "", docDate = "", custType = "", period = "", money = "" ;
@@ -30,7 +30,7 @@ public class MainAgentDB {
 			
 			String sqlStmt = "SELECT custid, custname, docdate, type, period, money " +
 			"FROM payment_customer_list " +
-			"WHERE "; 
+			"WHERE username = '"+userName+"' AND "; 
 			if(!custDate.equals("")) sqlStmt = sqlStmt+ "docdate between '"+custDate+"' AND date_add('"+custDate+"',INTERVAL 7 day) AND ";
 			if(!fromDate.equals("")) sqlStmt = sqlStmt+ "docdate >= '"+fromDate+"' AND ";
 			if(!toDate.equals("")) sqlStmt = sqlStmt+ "docdate <= '"+toDate+"' AND ";
