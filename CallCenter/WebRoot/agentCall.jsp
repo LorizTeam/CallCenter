@@ -6,7 +6,7 @@
 <%@ page import ="javax.servlet.http.HttpSession.*"%>
 <%@ page import="com.callcenter.agent.form.MainAgentForm" %>
 <%
-	String fromDate = "", toDate = "", custID = "", name = "", name1 = "";
+	String fromDate = "", toDate = "", custID = "", name = "", userName = "";
 	
 	if(request.getAttribute("fromDate")!=null){
 		fromDate = request.getAttribute("fromDate").toString();
@@ -20,9 +20,10 @@
 	if(session.getAttribute("name") != null) {
 		name = (String) session.getAttribute("name");
 	}
-	
-	String tel = "90859283369";
-	String id = "1997";
+	if(session.getAttribute("userName") != null) {
+		userName = (String) session.getAttribute("userName");
+	}
+ 
  %>
 <!DOCTYPE html>
 <html>
@@ -60,9 +61,10 @@
 	function tel(){
 	var alertMassage = document.getElementById('tranID');
 	var telNo = 9+document.getElementById("tranID").value;
-	
+	var userName = document.getElementById("userName").value;
+	 
 	if(alertMassage.value != ""){ 
-	var myWindow = window.open("https://192.168.1.250/abc/call.php?number="+telNo+"&activityid=13336", "myWindow", "width=200, height=100")
+	var myWindow = window.open("https://192.168.1.250/abc/call1.php?number="+telNo+"&username="+userName+" ", "myWindow", "width=200, height=100")
 
  	setTimeout (function() {myWindow.close();}, 500);
  	
@@ -71,6 +73,13 @@
  	alert("โปรดระบุ หมายเลขโทรศัพท์ ก่อนทำการโทร"); 
  	
  	}
+ }
+ 	function endTel(){
+	
+	var myWindow = window.open("https://192.168.1.250/abc/hangup.php?username="+userName+" ", "myWindow", "width=200, height=100")
+
+ 	setTimeout (function() {myWindow.close();}, 500);
+ 	
  }
 
 		</script>
@@ -121,12 +130,10 @@
 											<td> <input type="text" class="form-control" id="tranName" name="tranName" ></td>
 											<td> <input type="text" class="form-control" id="tranPeriod" name="tranPeriod" ></td>
 											<td> <input type="text" class="form-control" id="tranMoney" name="tranMoney" ></td>
-											<td> <input type="text" class="form-control" id="tranDate" name="tranDate" ></td>
-											<!-- <td>0993511516</td>
-											<td>วิไล เคียงประดู่</td>
-											<td>1</td>
-											<td>10,000 บาท</td>
-											<td>10-06-2015</td> -->
+											<td> <input type="text" class="form-control" id="tranDate" name="tranDate" >
+											<input type="hidden" id="userName" name="userName" value="<%=userName%>" />
+											
+											</td>
 										</tr>
 									</tbody>
 								</table>
@@ -138,7 +145,7 @@
 									</div>
 									<div class="col-md-2 col-md-offset-1">
 										<div class="center-block">
-											<img class="profile-img" src="img/endcall.png" /> 
+											<img class="profile-img" src="img/endcall.png" onclick="endTel();" /> 
 										</div>
 									</div>
 								</div>
