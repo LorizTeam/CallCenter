@@ -76,10 +76,16 @@
  }
  	function endTel(){
 	
+	var alertMassage = document.getElementById('tranID');
+	if(alertMassage.value != ""){ 
 	var myWindow = window.open("https://192.168.1.250/abc/hangup.php?username="+userName+" ", "myWindow", "width=200, height=100")
 
  	setTimeout (function() {myWindow.close();}, 500);
+ 	}else{
+  
+ 	alert("ไม่พบการติดต่อ"); 
  	
+ 	}
  }
 
 		</script>
@@ -138,7 +144,7 @@
 									</tbody>
 								</table>
 								<div class="row">
-									<div class="col-md-2">
+									<div class="col-md-6">
 										<div class="center-block">
 											<img class="profile-img" src="img/call.png" onclick="tel();"  />
 											<center><label>Customer Call</label></center>

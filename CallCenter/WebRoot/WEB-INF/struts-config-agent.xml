@@ -13,13 +13,13 @@
   <!--################################     Main Agent     #################################-->
    <action
       attribute="mainAgentForm"
-      input="/mainAgent.jsp"
+      input="/mainAgent1.jsp"
       name="mainAgentForm"
       path="/mainAgent"
       scope="request"
       type="com.callcenter.agent.action.MainAgentAction" >
       
-      <forward name="search" path="/mainAgent.jsp" />
+      <forward name="search" path="/mainAgent1.jsp" />
       <forward name="success" path="/agentCall.jsp" />
       <forward name="createCustomer" path="/createCustomer.jsp" />
     </action> 

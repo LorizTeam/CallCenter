@@ -22,7 +22,7 @@
       
       <forward name="error" path="/login.jsp" />
       <forward name="success_amd" path="/supervisor.jsp" />
-      <forward name="success_agt" path="/mainAgent.jsp" />
+      <forward name="success_agt" path="/mainAgent1.jsp" />
       <forward name="success_acc" path="/mainAccounting.jsp" />
     </action>
   <!--################################     Login     #################################-->
