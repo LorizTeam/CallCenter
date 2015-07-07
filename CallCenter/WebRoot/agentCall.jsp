@@ -117,11 +117,11 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td> <input type="text" class="form-control" id="tranID" name="tranID" ></td>
-											<td> <input type="text" class="form-control" id="tranName" name="tranName" ></td>
-											<td> <input type="text" class="form-control" id="tranPeriod" name="tranPeriod" ></td>
-											<td> <input type="text" class="form-control" id="tranMoney" name="tranMoney" ></td>
-											<td> <input type="text" class="form-control" id="tranDate" name="tranDate" ></td>
+											<td> <input type="text" class="form-control" id="tranID" name="tranID" readonly></td>
+											<td> <input type="text" class="form-control" id="tranName" name="tranName" readonly></td>
+											<td> <input type="text" class="form-control" id="tranPeriod" name="tranPeriod" readonly></td>
+											<td> <input type="text" class="form-control" id="tranMoney" name="tranMoney" readonly></td>
+											<td> <input type="text" class="form-control" id="tranDate" name="tranDate" readonly></td>
 											<!-- <td>0993511516</td>
 											<td>วิไล เคียงประดู่</td>
 											<td>1</td>
